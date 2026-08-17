@@ -54,7 +54,8 @@ Page.displayName = "Page";
 
 const CHROME_DESKTOP = 260; // nav buttons + gaps + stage padding reserved on wide screens
 const CHROME_MOBILE = 70; // reduced chrome reserved on narrow screens
-const MIN_PAGE_HEIGHT = 520; // enough vertical room for the densest spec sheet at any width
+const MIN_PAGE_HEIGHT = 560; // enough vertical room for the densest spec sheet at any width
+const MIN_SPREAD_PAGE_WIDTH = 220; // below this a single page is more readable than a cramped spread
 
 export default function CatalogBookViewer({ pages, name }: { pages: BookPage[]; name: string }) {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -66,15 +67,16 @@ export default function CatalogBookViewer({ pages, name }: { pages: BookPage[]; 
   useEffect(() => {
     function computeSize() {
       const stageWidth = stageRef.current?.clientWidth ?? window.innerWidth;
-      // Only spread into two pages when each page can be at least 340px wide —
-      // narrower than that and the spec sheet text needs more height than a
-      // width-locked aspect ratio can give it, so we'd rather show one page at a time.
-      const canSpread = stageWidth - CHROME_DESKTOP >= 340 * 2;
+      // Spread into two pages whenever each page can be at least MIN_SPREAD_PAGE_WIDTH
+      // wide — the spec sheet's height is fixed (MIN_PAGE_HEIGHT) regardless of width,
+      // so a narrower spread just wraps more text rather than cropping it, letting
+      // tablets (and phones in landscape) keep the real open-book layout too.
+      const canSpread = stageWidth - CHROME_DESKTOP >= MIN_SPREAD_PAGE_WIDTH * 2;
       const chrome = canSpread ? CHROME_DESKTOP : CHROME_MOBILE;
       const available = Math.max(stageWidth - chrome, 200);
 
       if (canSpread) {
-        const perPage = Math.min(available / 2, 380);
+        const perPage = Math.min(Math.max(available / 2, MIN_SPREAD_PAGE_WIDTH), 380);
         setBook({ width: Math.round(perPage), height: MIN_PAGE_HEIGHT, spread: true });
       } else {
         const single = Math.min(Math.max(available, 220), 340);

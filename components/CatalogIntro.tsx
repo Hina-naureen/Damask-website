@@ -37,7 +37,7 @@ export default function CatalogIntro({ catalog }: { catalog: Catalog }) {
               <Link href="/#contact" className="btn btn-primary">
                 Book Consultation
               </Link>
-              <a href={catalog.pdf} download className="btn btn-outline">
+              <a href={catalog.pdf} download className="btn btn-solid">
                 <i className="fa-solid fa-file-arrow-down" /> Download Catalog PDF
               </a>
             </div>

@@ -70,6 +70,11 @@ export default function Hero() {
             </Link>
           </Magnetic>
           <Magnetic>
+            <Link href="/catalogs" className="btn btn-solid">
+              <i className="fa-solid fa-book-open" /> Browse Catalogs
+            </Link>
+          </Magnetic>
+          <Magnetic>
             <Link href="/#collections" className="btn btn-outline">
               Explore Our Designs
             </Link>
