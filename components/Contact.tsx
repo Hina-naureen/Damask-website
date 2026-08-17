@@ -47,10 +47,10 @@ export default function Contact() {
 
           <ul className="contact-list">
             <li>
-              <i className="fa-solid fa-location-dot" />
+              <i className="fa-solid fa-truck-fast" />
               <div>
-                <strong>Address</strong>
-                <span>{site.address}</span>
+                <strong>Nationwide Delivery</strong>
+                <span>{site.deliveryStatement}</span>
               </div>
             </li>
             <li>
@@ -60,6 +60,8 @@ export default function Contact() {
                 <span>
                   <a href={`tel:${site.phonePrimaryTel}`}>{site.phonePrimary}</a> &nbsp;|&nbsp;{" "}
                   <a href={`tel:${site.phoneSecondaryTel}`}>{site.phoneSecondary}</a>
+                  <br />
+                  {site.ownerName} — {site.ownerTitle}
                 </span>
               </div>
             </li>
@@ -91,15 +93,6 @@ export default function Contact() {
               <strong>Scan To Connect</strong>
               <span>Save our contact instantly from the card QR code.</span>
             </div>
-          </div>
-
-          <div className="map-embed">
-            <iframe
-              title="Damask Textile Pakistan Location Map"
-              src="https://maps.google.com/maps?q=E-189%20PECHS%20Block%202%20Karachi%20Pakistan&z=15&output=embed"
-              loading="lazy"
-              referrerPolicy="no-referrer-when-downgrade"
-            />
           </div>
         </Reveal>
 

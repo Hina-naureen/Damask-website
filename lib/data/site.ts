@@ -2,11 +2,13 @@ export const site = {
   name: "Damask Textile Pakistan",
   brandMain: "DAMASK",
   brandSub: "Textile Pakistan",
-  address: "E-189, PECHS, Block-2, Karachi, Pakistan",
+  deliveryStatement: "Delivering premium interior fabrics across Pakistan.",
+  ownerName: "Muhammad Azeem",
+  ownerTitle: "Proprietor",
   phonePrimary: "0300-0326275",
   phonePrimaryTel: "+923000326275",
-  phoneSecondary: "021-34388820",
-  phoneSecondaryTel: "+922134388820",
+  phoneSecondary: "0300-8237510",
+  phoneSecondaryTel: "+923008237510",
   email: "damasktextilepak@gmail.com",
   whatsapp: "https://wa.me/923000326275",
   whatsappWithMessage:
@@ -16,8 +18,7 @@ export const site = {
 export const navLinks = [
   { label: "Home", href: "/" },
   { label: "About", href: "/#about" },
-  { label: "Services", href: "/#services" },
-  { label: "Portfolio", href: "/#portfolio" },
+  { label: "Catalogs", href: "/catalogs" },
   { label: "Testimonials", href: "/#testimonials" },
   { label: "Contact", href: "/#contact" },
 ];

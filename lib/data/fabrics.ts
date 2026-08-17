@@ -32,12 +32,6 @@ export const fabrics: Product[] = [
     imageId: "1771098206750-6be5aef4f503",
   },
   {
-    slug: "iridescent-textured-fabric",
-    name: "Iridescent Textured Fabric",
-    description: "Shimmering, color-shifting weave that catches the light for a striking accent piece.",
-    imageId: "1642292851849-aca2c5351ce6",
-  },
-  {
     slug: "cotton-fabric",
     name: "Cotton Fabric",
     description: "Breathable, versatile cotton in a curated palette of premium dyed tones.",

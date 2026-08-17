@@ -527,6 +527,9 @@ section {
   object-fit: cover;
   animation: kenBurns 22s ease-in-out infinite alternate;
 }
+#home .hero-media img {
+  filter: brightness(1.1) contrast(1.03) saturate(1.03);
+}
 @keyframes kenBurns {
   0% {
     transform: scale(1);
@@ -543,6 +546,14 @@ section {
     rgba(33, 28, 24, 0.92) 10%,
     rgba(33, 28, 24, 0.55) 55%,
     rgba(200, 113, 46, 0.35) 100%
+  );
+}
+#home .hero-overlay {
+  background: linear-gradient(
+    115deg,
+    rgba(33, 28, 24, 0.78) 10%,
+    rgba(33, 28, 24, 0.42) 55%,
+    rgba(200, 113, 46, 0.28) 100%
   );
 }
 .hero-content {
@@ -635,6 +646,7 @@ section {
 }
 .breadcrumb {
   display: flex;
+  flex-wrap: wrap;
   gap: 8px;
   align-items: center;
   font-size: 0.85rem;
@@ -841,7 +853,7 @@ section {
   border-radius: var(--radius);
   overflow: hidden;
   aspect-ratio: 3/4.4;
-  box-shadow: var(--shadow-card);
+  box-shadow: 0 20px 45px -18px rgba(20, 16, 13, 0.45), 0 0 0 1px rgba(239, 103, 35, 0.12);
   border: 1px solid rgba(201, 162, 75, 0.18);
   transition: transform var(--transition), box-shadow var(--transition);
 }
@@ -915,6 +927,99 @@ section {
 .collection-card:hover .collection-arrow {
   opacity: 1;
   transform: translateY(0);
+}
+.catalog-grid {
+  grid-template-columns: repeat(3, 1fr);
+  max-width: 980px;
+  margin: 0 auto;
+  row-gap: 44px;
+}
+.catalog-grid > *:nth-child(7) {
+  grid-column: 2;
+}
+.fabric-grid {
+  grid-template-columns: repeat(auto-fill, minmax(132px, 1fr));
+  gap: 22px 18px;
+  max-width: 980px;
+  margin: 0 auto;
+}
+.fabric-grid .product-media {
+  aspect-ratio: 1/1;
+}
+.fabric-grid .product-media img {
+  object-fit: cover;
+  object-position: center;
+}
+.fabric-grid .product-card {
+  box-shadow: 0 18px 38px -16px rgba(20, 16, 13, 0.45), 0 0 0 1px rgba(239, 103, 35, 0.14);
+}
+.fabric-grid .product-card:hover {
+  box-shadow: 0 26px 55px -18px rgba(20, 16, 13, 0.55), 0 0 0 1px rgba(239, 103, 35, 0.5),
+    0 0 40px -10px rgba(239, 103, 35, 0.45);
+}
+.fabric-grid .product-frame {
+  inset: 6px;
+}
+.fabric-grid .product-overlay strong {
+  font-size: 0.88rem;
+}
+.fabric-grid .product-overlay span {
+  font-size: 0.68rem;
+}
+@media (max-width: 900px) {
+  .catalog-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .catalog-grid > *:nth-child(7) {
+    grid-column: auto;
+  }
+}
+@media (max-width: 560px) {
+  .catalog-grid {
+    grid-template-columns: 1fr;
+  }
+  .fabric-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+.catalog-intro-section {
+  background: var(--cream);
+  padding: 170px 0 30px;
+}
+.catalog-intro-section .breadcrumb {
+  color: rgba(33, 28, 24, 0.55);
+}
+.catalog-intro-section .breadcrumb a {
+  color: var(--orange);
+}
+.catalog-cover-media {
+  max-width: 340px;
+  margin: 0 auto;
+}
+.catalog-cover-media img {
+  aspect-ratio: 4/5;
+  width: 100%;
+  height: auto;
+}
+.catalogs-page-header {
+  padding: 170px 0 20px;
+  background: var(--cream);
+}
+.catalog-details-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 24px;
+}
+.catalog-detail-frame {
+  position: relative;
+  aspect-ratio: 4/5;
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: var(--shadow-card);
+  border: 1px solid rgba(201, 162, 75, 0.18);
+}
+.catalog-detail-frame img {
+  object-fit: cover;
 }
 
 /* ============================================================
@@ -1196,6 +1301,413 @@ section {
 .lightbox-close:hover {
   background: #fff;
   color: var(--charcoal);
+}
+
+/* ============================================================
+   CATALOG BOOK VIEWER (page-flip)
+   ============================================================ */
+.catalog-book-wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+.catalog-book-stage {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 22px;
+  width: 100%;
+  max-width: 980px;
+  margin: 0 auto;
+  padding: 64px 40px 84px;
+  background: radial-gradient(ellipse at center 30%, rgba(239, 103, 35, 0.1), transparent 65%),
+    linear-gradient(180deg, #efe6da 0%, #e4d7c4 100%);
+  border-radius: 28px;
+  border: 1px solid rgba(201, 162, 75, 0.25);
+  box-shadow: inset 0 2px 8px rgba(255, 255, 255, 0.5), inset 0 -20px 40px -20px rgba(120, 90, 50, 0.25);
+  position: relative;
+}
+.catalog-book-stage::after {
+  content: "";
+  position: absolute;
+  left: 10%;
+  right: 10%;
+  bottom: 40px;
+  height: 34px;
+  background: radial-gradient(ellipse at center, rgba(20, 16, 13, 0.4), transparent 75%);
+  filter: blur(6px);
+  z-index: 0;
+}
+.catalog-book-frame {
+  position: relative;
+  display: inline-flex;
+  min-height: 520px;
+}
+@media (max-width: 700px) {
+  .catalog-book-frame {
+    min-height: 380px;
+  }
+}
+.catalog-flipbook {
+  border-radius: 4px;
+  position: relative;
+  z-index: 1;
+}
+/* stacked-paper edge illusion behind the book */
+.catalog-book-frame::before,
+.catalog-book-frame::after {
+  content: "";
+  position: absolute;
+  top: 10px;
+  bottom: 10px;
+  width: 12px;
+  z-index: 0;
+  border-radius: 2px;
+  background: repeating-linear-gradient(
+    180deg,
+    #f7f1e6 0px,
+    #f7f1e6 2px,
+    #ddcfb2 2px,
+    #ddcfb2 3px
+  );
+  box-shadow: 0 14px 28px -8px rgba(20, 16, 13, 0.4);
+}
+.catalog-book-frame::before {
+  left: -8px;
+}
+.catalog-book-frame::after {
+  right: -8px;
+}
+.catalog-book-frame .catalog-flipbook {
+  box-shadow: 0 60px 110px -24px rgba(20, 16, 13, 0.55), 0 18px 40px -18px rgba(20, 16, 13, 0.4),
+    0 0 0 1px rgba(239, 103, 35, 0.18);
+}
+/* center fold / spine shadow, sits between the left and right pages — only shown in two-page spread mode */
+.catalog-book-spine {
+  position: absolute;
+  top: 6%;
+  bottom: 6%;
+  left: 50%;
+  width: 64px;
+  transform: translateX(-50%);
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(20, 16, 13, 0.16) 40%,
+    rgba(20, 16, 13, 0.28) 50%,
+    rgba(20, 16, 13, 0.16) 60%,
+    transparent 100%
+  );
+  pointer-events: none;
+  z-index: 5;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+.catalog-book-spine.is-visible {
+  opacity: 1;
+}
+.book-page {
+  background: #fdfaf5;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  border: 1px solid rgba(201, 162, 75, 0.3);
+  overflow: hidden;
+}
+.book-page img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.book-page-detail {
+  background: #fdfaf5;
+  align-items: stretch;
+  justify-content: flex-start;
+}
+.book-spec-sheet {
+  width: 100%;
+  height: 100%;
+  padding: 22px 20px;
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+  box-sizing: border-box;
+}
+.book-spec-eyebrow {
+  font-size: 0.62rem;
+  letter-spacing: 1.4px;
+  text-transform: uppercase;
+  color: var(--orange);
+  font-weight: 600;
+  margin: 0 0 3px;
+}
+.book-spec-sheet h4 {
+  font-family: var(--font-heading);
+  font-size: 1.05rem;
+  margin: 0 0 12px;
+  color: var(--charcoal);
+  border-bottom: 2px solid rgba(239, 103, 35, 0.25);
+  padding-bottom: 8px;
+  line-height: 1.2;
+}
+.fabric-spec-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin: 0;
+}
+.fabric-spec-row {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+  padding-bottom: 7px;
+  border-bottom: 1px dashed rgba(33, 28, 24, 0.12);
+}
+.fabric-spec-row dt {
+  font-size: 0.58rem;
+  text-transform: uppercase;
+  letter-spacing: 0.7px;
+  color: var(--orange);
+  font-weight: 600;
+}
+.fabric-spec-row dd {
+  margin: 0;
+  font-size: 0.78rem;
+  color: var(--charcoal);
+  font-weight: 500;
+  line-height: 1.35;
+  overflow-wrap: anywhere;
+  word-break: break-word;
+}
+.book-page-label {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  padding: 10px 14px;
+  background: linear-gradient(0deg, rgba(20, 16, 13, 0.85), transparent);
+  color: #fff;
+  font-size: 0.78rem;
+  letter-spacing: 0.4px;
+}
+.book-page-detail .book-page-label {
+  display: none;
+}
+.catalog-book-prev,
+.catalog-book-next {
+  background: #fff;
+  border: 1px solid rgba(201, 162, 75, 0.35);
+  color: var(--orange);
+  box-shadow: var(--shadow-card);
+  flex-shrink: 0;
+  position: relative;
+  z-index: 3;
+}
+.catalog-book-prev:hover,
+.catalog-book-next:hover {
+  background: var(--orange);
+  color: #fff;
+  border-color: var(--orange);
+}
+.catalog-book-count {
+  font-size: 0.85rem;
+  color: var(--text-light);
+  letter-spacing: 0.5px;
+}
+@media (max-width: 700px) {
+  .catalog-book-stage {
+    gap: 10px;
+    padding: 36px 14px 52px;
+    border-radius: 18px;
+  }
+  .catalog-book-prev,
+  .catalog-book-next {
+    width: 40px;
+    height: 40px;
+    font-size: 0.95rem;
+  }
+  .catalog-book-spine,
+  .catalog-book-frame::before,
+  .catalog-book-frame::after {
+    display: none;
+  }
+  .book-spec-sheet {
+    padding: 18px 16px;
+  }
+  .book-spec-sheet h4 {
+    font-size: 0.95rem;
+  }
+  .fabric-spec-row dd {
+    font-size: 0.74rem;
+  }
+}
+
+/* ============================================================
+   FABRIC DETAIL MODAL
+   ============================================================ */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@keyframes fabricModalIn {
+  from {
+    opacity: 0;
+    transform: scale(0.96) translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+.fabric-modal {
+  position: fixed;
+  inset: 0;
+  background: rgba(20, 16, 13, 0.92);
+  backdrop-filter: blur(6px);
+  z-index: 2100;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 90px 90px;
+  animation: fadeIn 0.25s ease;
+}
+.fabric-modal-panel {
+  background: var(--cream);
+  border-radius: var(--radius);
+  overflow: hidden;
+  display: grid;
+  grid-template-columns: 1.3fr 1fr;
+  max-width: 1040px;
+  width: 100%;
+  max-height: 82vh;
+  box-shadow: 0 50px 100px rgba(0, 0, 0, 0.55);
+  animation: fabricModalIn 0.35s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+.fabric-modal-image {
+  position: relative;
+  background: #12100e;
+  min-height: 340px;
+}
+.fabric-modal-image img {
+  object-fit: contain;
+}
+.fabric-modal-info {
+  padding: 40px 34px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  overflow-y: auto;
+}
+.fabric-modal-info h3 {
+  font-size: 1.8rem;
+  margin: 0 0 10px;
+}
+.fabric-modal-label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--text-light);
+  font-size: 0.92rem;
+  margin: 8px 0 0;
+}
+.fabric-modal-label i {
+  color: var(--orange);
+}
+.fabric-modal-thumbs {
+  display: flex;
+  gap: 10px;
+  margin-top: 16px;
+  flex-wrap: wrap;
+}
+.fabric-modal-thumb {
+  position: relative;
+  width: 64px;
+  height: 64px;
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+  border: 2px solid transparent;
+  cursor: pointer;
+  padding: 0;
+  background: none;
+}
+.fabric-modal-thumb img {
+  object-fit: cover;
+}
+.fabric-modal-thumb.active {
+  border-color: var(--orange);
+}
+.fabric-modal-count {
+  margin-top: auto;
+  padding-top: 20px;
+  font-size: 0.85rem;
+  color: var(--text-light);
+  letter-spacing: 0.5px;
+}
+.fabric-modal-close {
+  position: absolute;
+  top: 26px;
+  right: 34px;
+  background: none;
+  border: 2px solid rgba(255, 255, 255, 0.4);
+  color: #fff;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: all var(--transition);
+  z-index: 2;
+}
+.fabric-modal-close:hover {
+  background: #fff;
+  color: var(--charcoal);
+}
+.fabric-modal-nav {
+  background: rgba(255, 255, 255, 0.1);
+  border: 2px solid rgba(255, 255, 255, 0.35);
+  color: #fff;
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  font-size: 1.15rem;
+  cursor: pointer;
+  flex-shrink: 0;
+  transition: all var(--transition);
+  z-index: 2;
+}
+.fabric-modal-nav:hover {
+  background: var(--orange);
+  border-color: var(--orange);
+}
+@media (max-width: 900px) {
+  .fabric-modal {
+    padding: 70px 16px;
+  }
+  .fabric-modal-panel {
+    grid-template-columns: 1fr;
+    max-height: 88vh;
+    overflow-y: auto;
+  }
+  .fabric-modal-image {
+    min-height: 260px;
+  }
+  .fabric-modal-nav {
+    position: fixed;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+  .fabric-modal-prev {
+    left: 10px;
+  }
+  .fabric-modal-next {
+    right: 10px;
+  }
 }
 
 /* ============================================================
@@ -1949,5 +2461,8 @@ section {
   }
   .about-list {
     grid-template-columns: 1fr;
+  }
+  .header-actions .btn-primary {
+    display: none;
   }
 }

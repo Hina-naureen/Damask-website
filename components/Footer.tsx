@@ -15,8 +15,8 @@ export default function Footer() {
             </span>
           </Link>
           <p>
-            Premium interior design solutions for homes, offices and luxury spaces — crafted with
-            elegance in Karachi, Pakistan.
+            A premium wholesale supplier of interior fabrics — curtains, upholstery, drapery and
+            designer textiles — delivered to showrooms and buyers across Pakistan.
           </p>
           <div className="social-icons">
             <a href="#" aria-label="Facebook">
@@ -44,7 +44,7 @@ export default function Footer() {
               <Link href="/#about">About Us</Link>
             </li>
             <li>
-              <Link href="/#portfolio">Portfolio</Link>
+              <Link href="/catalogs">Fabric Catalogs</Link>
             </li>
             <li>
               <Link href="/#testimonials">Testimonials</Link>
@@ -70,7 +70,7 @@ export default function Footer() {
           <h4>Contact Info</h4>
           <ul className="footer-contact">
             <li>
-              <i className="fa-solid fa-location-dot" /> {site.address}
+              <i className="fa-solid fa-truck-fast" /> {site.deliveryStatement}
             </li>
             <li>
               <i className="fa-solid fa-phone" />{" "}

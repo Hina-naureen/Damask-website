@@ -17,7 +17,7 @@ type QuickReply = {
 };
 
 const MAIN_MENU_PROMPT =
-  "Hi, I'm the Damask AI Agent. How can I help you today?";
+  "Hi, I'm the Damask AI Assistant. I can help with our fabrics, catalogs and consultations — what would you like to know?";
 
 export default function AIAssistant() {
   const router = useRouter();
@@ -62,6 +62,8 @@ export default function AIAssistant() {
 
   function mainMenuOptions(): QuickReply[] {
     return [
+      { label: "About Damask Textile", onSelect: showAboutBusiness },
+      { label: "Browse Our Fabric Catalogs", onSelect: showCatalogInfo },
       { label: "Book a Consultation", onSelect: showBooking },
       { label: "Help me choose curtains", onSelect: showCurtainIntro },
       { label: "Help me choose a sofa", onSelect: showSofaIntro },
@@ -72,6 +74,49 @@ export default function AIAssistant() {
 
   function backToMenu() {
     say("Back to menu", MAIN_MENU_PROMPT, mainMenuOptions());
+  }
+
+  function showAboutBusiness() {
+    say(
+      "About Damask Textile",
+      "Damask Textile Pakistan, managed by Azeem, is a premium wholesale fabric supplier — not a small retail shop. We supply premium interior fabrics for curtains, upholstery, drapery and designer interiors to showrooms, interior shops, designers and professional buyers across Pakistan.",
+      [
+        {
+          label: "Do you deliver across Pakistan?",
+          onSelect: () =>
+            say(
+              "Do you deliver across Pakistan?",
+              `Yes — ${site.deliveryStatement} We supply showrooms, retailers and professional buyers nationwide.`,
+              [
+                { label: "Browse Our Fabric Catalogs", onSelect: showCatalogInfo },
+                { label: "Book a Consultation", onSelect: showBooking },
+                { label: "⟵ Back to Menu", onSelect: backToMenu },
+              ]
+            ),
+        },
+        { label: "Browse Our Fabric Catalogs", onSelect: showCatalogInfo },
+        { label: "Book a Consultation", onSelect: showBooking },
+        { label: "⟵ Back to Menu", onSelect: backToMenu },
+      ]
+    );
+  }
+
+  function showCatalogInfo() {
+    say(
+      "Browse Our Fabric Catalogs",
+      "We carry a full range of fabric catalogs — Almas Collection, Damask Classic, Blackout Fabric, Linen Sofa, New Arrivals and Water Repellent Fabric. Each catalog opens as a flipbook with its cover, numbered fabric samples and full specification sheets, covering curtains, upholstery, drapery and jacquard designer fabrics.",
+      [
+        {
+          label: "Open Catalogs Page",
+          onSelect: () => {
+            setOpen(false);
+            router.push("/catalogs");
+          },
+        },
+        { label: "Book a Consultation For Pricing", onSelect: showBooking },
+        { label: "⟵ Back to Menu", onSelect: backToMenu },
+      ]
+    );
   }
 
   function showBooking() {
@@ -210,7 +255,7 @@ export default function AIAssistant() {
   function showContact() {
     say(
       "Contact Information",
-      `Here's how to reach us:\n📍 ${site.address}\n📞 ${site.phonePrimary} / ${site.phoneSecondary}\n✉️ ${site.email}`,
+      `Here's how to reach us:\n🚚 ${site.deliveryStatement}\n📞 ${site.phonePrimary} / ${site.phoneSecondary}\n✉️ ${site.email}`,
       [
         {
           label: "Chat With Us on WhatsApp",
@@ -222,33 +267,38 @@ export default function AIAssistant() {
   }
 
   function showFaq() {
-    say("Frequently Asked Questions", "Here are a few things clients often ask:", [
+    say("Frequently Asked Questions", "Here are a few things buyers often ask:", [
+      {
+        label: "Are you wholesale or retail?",
+        onSelect: () =>
+          say(
+            "Are you wholesale or retail?",
+            "We're a wholesale fabric supplier. Damask Textile Pakistan supplies premium interior fabrics to showrooms, interior shops, designers and other professional buyers — we're not a small retail counter.",
+            faqFollowUp()
+          ),
+      },
       {
         label: "Do you offer a free consultation?",
         onSelect: () =>
           say(
             "Do you offer a free consultation?",
-            "Yes — your first consultation with our design team is completely free, in person or over WhatsApp.",
+            "Yes — your first consultation with our team is completely free, in person or over WhatsApp.",
             faqFollowUp()
           ),
       },
       {
-        label: "Can you customize a design?",
+        label: "What fabrics do you offer?",
         onSelect: () =>
           say(
-            "Can you customize a design?",
-            "Absolutely. Every curtain, sofa and fabric can be tailored to your color palette, fabric choice and room dimensions.",
+            "What fabrics do you offer?",
+            "Curtains, upholstery, drapery, jacquard and blackout fabrics, plus designer textiles — all organized into catalogs you can browse online.",
             faqFollowUp()
           ),
       },
       {
-        label: "Do you work outside Karachi?",
+        label: "Do you supply across Pakistan?",
         onSelect: () =>
-          say(
-            "Do you work outside Karachi?",
-            "We're based in Karachi and primarily serve the city, but reach out and our team can discuss options for your location.",
-            faqFollowUp()
-          ),
+          say("Do you supply across Pakistan?", site.deliveryStatement, faqFollowUp()),
       },
       { label: "⟵ Back to Menu", onSelect: backToMenu },
     ]);
@@ -297,7 +347,7 @@ export default function AIAssistant() {
             <div className="ai-assistant-identity">
               <Logo size={36} />
               <div>
-                <strong>Damask AI Agent</strong>
+                <strong>Damask AI Assistant</strong>
                 <span>Usually replies instantly</span>
               </div>
             </div>

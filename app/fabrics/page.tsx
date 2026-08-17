@@ -1,15 +1,15 @@
 import type { Metadata } from "next";
 import PageHero from "@/components/PageHero";
-import ProductGrid from "@/components/ProductGrid";
+import CatalogGrid from "@/components/CatalogGrid";
 import Reveal from "@/components/Reveal";
 import CtaBanner from "@/components/CtaBanner";
 import CollectionCrossLinks from "@/components/CollectionCrossLinks";
-import { fabrics } from "@/lib/data/fabrics";
+import { catalogs } from "@/lib/data/catalogs";
 
 export const metadata: Metadata = {
   title: "Designer Fabric Collection | Damask Textile Pakistan",
   description:
-    "Explore our designer fabric collection — velvet, silk, leather, linen, jacquard damask and printed textiles sourced for premium interiors in Karachi.",
+    "Browse the Damask Textile Pakistan fabric catalogs — Almas Collection, Damask Classic, Blackout Fabric, Linen Sofa, New Arrivals and Water Repellent Fabric.",
 };
 
 export default function FabricsPage() {
@@ -26,14 +26,14 @@ export default function FabricsPage() {
       <section className="portfolio">
         <div className="container">
           <Reveal className="section-head">
-            <p className="eyebrow">Showroom</p>
-            <h2>Fabrics &amp; Textile Library</h2>
+            <p className="eyebrow">Catalog Library</p>
+            <h2>Browse Our Fabric Catalogs</h2>
             <p className="section-desc">
-              Every weave, weight and finish available to sample — velvet, silk, leather, linen
-              and more.
+              Open any catalog to flip through its cover, fabric detail sheets and full numbered
+              swatch gallery.
             </p>
           </Reveal>
-          <ProductGrid products={fabrics} />
+          <CatalogGrid catalogs={catalogs} />
         </div>
       </section>
 

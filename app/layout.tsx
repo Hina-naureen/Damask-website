@@ -25,24 +25,24 @@ const poppins = Poppins({
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://damasktextilepakistan.com"),
-  title: "Damask Textile Pakistan | Luxury Interior Solutions in Karachi, Pakistan",
+  title: "Damask Textile Pakistan | Wholesale Interior Fabric Supplier",
   description:
-    "Damask Textile Pakistan delivers premium residential & commercial interior design, luxury furniture, curtains, wall & ceiling design, and lighting solutions in Karachi.",
+    "Damask Textile Pakistan is a premium wholesale supplier of interior fabrics — curtains, upholstery, drapery & jacquard — delivering to showrooms, retailers and designers across Pakistan.",
   keywords: [
-    "interior design Karachi",
-    "luxury interior design Pakistan",
-    "curtains Karachi",
-    "furniture design",
-    "wall ceiling design",
-    "lighting design",
+    "wholesale fabric supplier Pakistan",
+    "interior fabric wholesaler",
+    "curtain fabric supplier Pakistan",
+    "upholstery fabric wholesale",
+    "jacquard fabric supplier",
+    "blackout fabric wholesale",
     "Damask Textile Pakistan",
     "Damask Textile",
   ],
   openGraph: {
     type: "website",
-    title: "Damask Textile Pakistan | Transform Your Space Into A Luxury Experience",
+    title: "Damask Textile Pakistan | Premium Wholesale Interior Fabrics",
     description:
-      "Premium Interior Design Solutions For Homes, Offices & Luxury Spaces in Karachi, Pakistan.",
+      "Delivering premium interior fabrics to showrooms, retailers and professional buyers across Pakistan.",
     images: ["https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?q=80&w=1200&auto=format&fit=crop"],
     locale: "en_PK",
   },
@@ -56,11 +56,9 @@ const jsonLd = {
   telephone: [site.phonePrimaryTel, site.phoneSecondaryTel],
   email: site.email,
   priceRange: "$$$",
-  address: {
-    "@type": "PostalAddress",
-    streetAddress: "E-189, PECHS, Block-2",
-    addressLocality: "Karachi",
-    addressCountry: "PK",
+  areaServed: {
+    "@type": "Country",
+    name: "Pakistan",
   },
 };
 

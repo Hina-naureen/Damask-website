@@ -46,8 +46,8 @@ export default function Hero() {
     <section className="hero" id="home">
       <div className="hero-media" ref={mediaRef} style={{ inset: "-4% 0 0 0" }}>
         <Image
-          src="/hero-room.jpg"
-          alt="Luxury bedroom with orange velvet curtains, orange armchair and gold chandelier"
+          src="/hero.jpg"
+          alt="Luxury living room with orange velvet curtains, orange armchairs and gold chandelier"
           fill
           priority
           sizes="100vw"
@@ -70,7 +70,7 @@ export default function Hero() {
             </Link>
           </Magnetic>
           <Magnetic>
-            <Link href="/#portfolio" className="btn btn-outline">
+            <Link href="/#collections" className="btn btn-outline">
               Explore Our Designs
             </Link>
           </Magnetic>
