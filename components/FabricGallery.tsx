@@ -4,7 +4,18 @@ import { useEffect, useState } from "react";
 import Image from "next/image";
 import StaggerReveal from "./StaggerReveal";
 import TiltCard from "./TiltCard";
+import FabricContactNote from "./FabricContactNote";
 import type { Fabric } from "@/lib/data/catalogs";
+
+const DEFAULT_APPLICATIONS = ["Curtains & drapery", "Upholstery & soft furnishing", "Residential & commercial interiors"];
+
+function splitApplications(suitableFor?: string): string[] {
+  if (!suitableFor) return DEFAULT_APPLICATIONS;
+  return suitableFor
+    .split(/,|&/)
+    .map((s) => s.trim())
+    .filter(Boolean);
+}
 
 const SPEC_ROWS: { key: keyof NonNullable<Fabric["spec"]>; label: string }[] = [
   { key: "catNo", label: "Catalog No." },
@@ -101,6 +112,11 @@ export default function FabricGallery({ fabrics, catalogName }: { fabrics: Fabri
             <div className="fabric-modal-info">
               <p className="eyebrow">{catalogName}</p>
               <h3>Fabric {active.number}</h3>
+              <p className="fabric-modal-desc">
+                {active.spec?.feature ??
+                  `A premium fabric from the ${catalogName}, professionally sourced and finished for luxury interiors.`}
+              </p>
+
               {active.spec ? (
                 <dl className="fabric-spec-list">
                   {SPEC_ROWS.filter((row) => active.spec?.[row.key]).map((row) => (
@@ -116,6 +132,18 @@ export default function FabricGallery({ fabrics, catalogName }: { fabrics: Fabri
                   provided for this item
                 </p>
               )}
+
+              <p className="fabric-modal-section-title">Suitable Applications</p>
+              <ul className="fabric-modal-list">
+                {splitApplications(active.spec?.suitableFor).map((a) => (
+                  <li key={a}>
+                    <i className="fa-solid fa-check" /> {a}
+                  </li>
+                ))}
+              </ul>
+
+              <FabricContactNote />
+
               <p className="fabric-modal-count">
                 {active.number} of {fabrics.length}
               </p>

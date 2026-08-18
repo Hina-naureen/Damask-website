@@ -4,7 +4,6 @@ import { useEffect, useRef, useState } from "react";
 import { useRouter } from "next/navigation";
 import gsap from "gsap";
 import { site } from "@/lib/data/site";
-import Logo from "./Logo";
 
 type Message = {
   role: "bot" | "user";
@@ -16,13 +15,15 @@ type QuickReply = {
   onSelect: () => void;
 };
 
-const MAIN_MENU_PROMPT =
-  "Hi, I'm the Damask AI Assistant. I can help with our fabrics, catalogs and consultations — what would you like to know?";
+const GREETING =
+  "Assalam-o-Alaikum 👋\nWelcome to Damask Textile Pakistan.\nI hope you are doing well. How can I help you today?\n\nYou can ask me about our fabric collections, catalogs, sofa fabrics, curtains, blackout fabrics, outdoor fabrics, or any product details.";
+
+const CONTACT_LINE = `For detailed pricing and fabric availability, you can contact our representative Azeem:\n📞 ${site.phonePrimary}`;
 
 export default function AIAssistant() {
   const router = useRouter();
   const [open, setOpen] = useState(false);
-  const [messages, setMessages] = useState<Message[]>([{ role: "bot", text: MAIN_MENU_PROMPT }]);
+  const [messages, setMessages] = useState<Message[]>([{ role: "bot", text: GREETING }]);
   const [options, setOptions] = useState<QuickReply[]>(() => mainMenuOptions());
   const [typing, setTyping] = useState(false);
   const [inputValue, setInputValue] = useState("");
@@ -62,48 +63,41 @@ export default function AIAssistant() {
 
   function mainMenuOptions(): QuickReply[] {
     return [
-      { label: "About Damask Textile", onSelect: showAboutBusiness },
-      { label: "Browse Our Fabric Catalogs", onSelect: showCatalogInfo },
-      { label: "Book a Consultation", onSelect: showBooking },
-      { label: "Help me choose curtains", onSelect: showCurtainIntro },
-      { label: "Help me choose a sofa", onSelect: showSofaIntro },
-      { label: "Contact Information", onSelect: showContact },
-      { label: "Frequently Asked Questions", onSelect: showFaq },
+      { label: "Curtain Collection", onSelect: () => showCurtainIntro() },
+      { label: "Sofa Collection", onSelect: () => showSofaIntro() },
+      { label: "Outdoor Fabric Collection", onSelect: () => showOutdoorFabricIntro() },
+      { label: "Fabric Collection", onSelect: () => showFabricCollectionIntro() },
+      { label: "Blackout Collection", onSelect: () => showBlackoutIntro() },
+      { label: "Browse Our Fabric Catalogs", onSelect: () => showCatalogInfo() },
+      { label: "Book a Consultation", onSelect: () => showBooking() },
+      { label: "Contact Information", onSelect: () => showContact() },
+      { label: "Frequently Asked Questions", onSelect: () => showFaq() },
     ];
   }
 
   function backToMenu() {
-    say("Back to menu", MAIN_MENU_PROMPT, mainMenuOptions());
+    say(
+      "Back to menu",
+      "Sure — what would you like to explore next?",
+      mainMenuOptions()
+    );
   }
 
-  function showAboutBusiness() {
+  function showAboutBusiness(label = "About Damask Textile") {
     say(
-      "About Damask Textile",
-      "Damask Textile Pakistan, managed by Azeem, is a premium wholesale fabric supplier — not a small retail shop. We supply premium interior fabrics for curtains, upholstery, drapery and designer interiors to showrooms, interior shops, designers and professional buyers across Pakistan.",
+      label,
+      "Damask Textile Pakistan, led by Azeem, is a premium wholesale fabric supplier — not a small retail shop. We supply premium interior fabrics for curtains, upholstery, drapery and designer interiors to showrooms, interior shops, designers and professional buyers across Pakistan.",
       [
-        {
-          label: "Do you deliver across Pakistan?",
-          onSelect: () =>
-            say(
-              "Do you deliver across Pakistan?",
-              `Yes — ${site.deliveryStatement} We supply showrooms, retailers and professional buyers nationwide.`,
-              [
-                { label: "Browse Our Fabric Catalogs", onSelect: showCatalogInfo },
-                { label: "Book a Consultation", onSelect: showBooking },
-                { label: "⟵ Back to Menu", onSelect: backToMenu },
-              ]
-            ),
-        },
-        { label: "Browse Our Fabric Catalogs", onSelect: showCatalogInfo },
-        { label: "Book a Consultation", onSelect: showBooking },
+        { label: "Browse Our Fabric Catalogs", onSelect: () => showCatalogInfo() },
+        { label: "Book a Consultation", onSelect: () => showBooking() },
         { label: "⟵ Back to Menu", onSelect: backToMenu },
       ]
     );
   }
 
-  function showCatalogInfo() {
+  function showCatalogInfo(label = "Browse Our Fabric Catalogs") {
     say(
-      "Browse Our Fabric Catalogs",
+      label,
       "We carry a full range of fabric catalogs — Almas Collection, Damask Classic, Blackout Fabric, Linen Sofa, New Arrivals and Water Repellent Fabric. Each catalog opens as a flipbook with its cover, numbered fabric samples and full specification sheets, covering curtains, upholstery, drapery and jacquard designer fabrics.",
       [
         {
@@ -113,16 +107,16 @@ export default function AIAssistant() {
             router.push("/catalogs");
           },
         },
-        { label: "Book a Consultation For Pricing", onSelect: showBooking },
+        { label: "Book a Consultation For Pricing", onSelect: () => showBooking() },
         { label: "⟵ Back to Menu", onSelect: backToMenu },
       ]
     );
   }
 
-  function showBooking() {
+  function showBooking(label = "Book a Consultation") {
     say(
-      "Book a Consultation",
-      "Great choice! You can book a free consultation in whichever way suits you best.",
+      label,
+      `Great choice! You can book a free consultation in whichever way suits you best.\n\n${CONTACT_LINE}`,
       [
         {
           label: "Open Consultation Form",
@@ -140,8 +134,8 @@ export default function AIAssistant() {
     );
   }
 
-  function showCurtainIntro() {
-    say("Help me choose curtains", "What kind of look are you going for?", [
+  function showCurtainIntro(label = "Show me curtains") {
+    say(label, "What kind of look are you going for?", [
       {
         label: "Modern & Minimal",
         onSelect: () =>
@@ -174,7 +168,7 @@ export default function AIAssistant() {
         onSelect: () =>
           say(
             "Show me everything",
-            "We have over 50 curtain styles across Window, Door and Special categories — velvet, silk, blackout, motorized and more.",
+            "Our Curtain Collection covers Window, Door and Special categories — velvet, silk, blackout, sheer, motorized and more, plus a dedicated photo & video showcase.",
             curtainFollowUp()
           ),
       },
@@ -191,13 +185,13 @@ export default function AIAssistant() {
           router.push("/curtains");
         },
       },
-      { label: "Book a Consultation", onSelect: showBooking },
+      { label: "Book a Consultation", onSelect: () => showBooking() },
       { label: "⟵ Back to Menu", onSelect: backToMenu },
     ];
   }
 
-  function showSofaIntro() {
-    say("Help me choose a sofa", "What matters most to you in a sofa?", [
+  function showSofaIntro(label = "Show me sofa fabrics") {
+    say(label, "What matters most to you in a sofa?", [
       {
         label: "Space-saving for a smaller room",
         onSelect: () =>
@@ -230,7 +224,7 @@ export default function AIAssistant() {
         onSelect: () =>
           say(
             "Fully custom design",
-            "Our Custom Designer Sofa service tailors everything — fabric, color and dimensions — to your exact space.",
+            "Our Custom Designer Sofa service tailors everything — fabric, colour and dimensions — to your exact space. Don't miss our Luxury Sofa photo & video showcase too.",
             sofaFollowUp()
           ),
       },
@@ -247,15 +241,69 @@ export default function AIAssistant() {
           router.push("/sofas");
         },
       },
-      { label: "Book a Consultation", onSelect: showBooking },
+      { label: "Book a Consultation", onSelect: () => showBooking() },
       { label: "⟵ Back to Menu", onSelect: backToMenu },
     ];
   }
 
-  function showContact() {
+  function showOutdoorFabricIntro(label = "Need outdoor fabric") {
     say(
-      "Contact Information",
-      `Here's how to reach us:\n🚚 ${site.deliveryStatement}\n📞 ${site.phonePrimary} / ${site.phoneSecondary}\n✉️ ${site.email}`,
+      label,
+      "Our Outdoor Fabric Collection is weather-resistant, fade-proof and built for patios, lounges, poolside furniture and al-fresco living — without compromising on luxury. It's mould & mildew resistant and easy to clean.",
+      [
+        {
+          label: "View Outdoor Fabric Collection",
+          onSelect: () => {
+            setOpen(false);
+            router.push("/outdoor-fabric");
+          },
+        },
+        { label: "Book a Consultation", onSelect: () => showBooking() },
+        { label: "⟵ Back to Menu", onSelect: backToMenu },
+      ]
+    );
+  }
+
+  function showBlackoutIntro(label = "Need blackout fabric") {
+    say(
+      label,
+      "Our Blackout Collection is a 4-pass luxurious blackout fabric — 100% blackout with UV protection, heat insulation, sound-dampening and a washable, anti-sticking finish. Perfect for bedrooms, home theatres, hotels and offices.",
+      [
+        {
+          label: "View Blackout Collection",
+          onSelect: () => {
+            setOpen(false);
+            router.push("/catalogs/blackout-fabric");
+          },
+        },
+        { label: "Book a Consultation", onSelect: () => showBooking() },
+        { label: "⟵ Back to Menu", onSelect: backToMenu },
+      ]
+    );
+  }
+
+  function showFabricCollectionIntro(label = "Fabric Collection") {
+    say(
+      label,
+      "Our general Fabric Collection covers velvet, leather, linen and jacquard damask — premium interior fabric for curtains, upholstery and custom projects.",
+      [
+        {
+          label: "View Fabric Collection",
+          onSelect: () => {
+            setOpen(false);
+            router.push("/fabrics");
+          },
+        },
+        { label: "Book a Consultation", onSelect: () => showBooking() },
+        { label: "⟵ Back to Menu", onSelect: backToMenu },
+      ]
+    );
+  }
+
+  function showContact(label = "Contact Information") {
+    say(
+      label,
+      `Here's how to reach us:\n🚚 ${site.deliveryStatement}\n\n${CONTACT_LINE}\n✉️ ${site.email}`,
       [
         {
           label: "Chat With Us on WhatsApp",
@@ -266,8 +314,8 @@ export default function AIAssistant() {
     );
   }
 
-  function showFaq() {
-    say("Frequently Asked Questions", "Here are a few things buyers often ask:", [
+  function showFaq(label = "Frequently Asked Questions") {
+    say(label, "Here are a few things buyers often ask:", [
       {
         label: "Are you wholesale or retail?",
         onSelect: () =>
@@ -291,14 +339,13 @@ export default function AIAssistant() {
         onSelect: () =>
           say(
             "What fabrics do you offer?",
-            "Curtains, upholstery, drapery, jacquard and blackout fabrics, plus designer textiles — all organized into catalogs you can browse online.",
+            "Curtains, sofa upholstery, outdoor fabric, blackout fabric, and general fabrics — velvet, leather, linen, jacquard and more — all organized into catalogs you can browse online.",
             faqFollowUp()
           ),
       },
       {
         label: "Do you supply across Pakistan?",
-        onSelect: () =>
-          say("Do you supply across Pakistan?", site.deliveryStatement, faqFollowUp()),
+        onSelect: () => say("Do you supply across Pakistan?", site.deliveryStatement, faqFollowUp()),
       },
       { label: "⟵ Back to Menu", onSelect: backToMenu },
     ]);
@@ -306,8 +353,8 @@ export default function AIAssistant() {
 
   function faqFollowUp(): QuickReply[] {
     return [
-      { label: "Ask another question", onSelect: showFaq },
-      { label: "Book a Consultation", onSelect: showBooking },
+      { label: "Ask another question", onSelect: () => showFaq() },
+      { label: "Book a Consultation", onSelect: () => showBooking() },
       { label: "⟵ Back to Menu", onSelect: backToMenu },
     ];
   }
@@ -317,15 +364,28 @@ export default function AIAssistant() {
     const text = inputValue.trim();
     if (!text) return;
     setInputValue("");
+    const q = text.toLowerCase();
+
+    if (/blackout/.test(q)) return showBlackoutIntro(text);
+    if (/outdoor/.test(q)) return showOutdoorFabricIntro(text);
+    if (/curtain|drape|drapery|blind/.test(q)) return showCurtainIntro(text);
+    if (/sofa|couch|upholst/.test(q)) return showSofaIntro(text);
+    if (/fabric collection|velvet|linen|jacquard/.test(q)) return showFabricCollectionIntro(text);
+    if (/catalog/.test(q)) return showCatalogInfo(text);
+    if (/contact|phone|whatsapp|number|azeem/.test(q)) return showContact(text);
+    if (/consult|book|appointment|price|pricing|quote|sample/.test(q)) return showBooking(text);
+    if (/about|wholesale|who are you/.test(q)) return showAboutBusiness(text);
+    if (/faq|question/.test(q)) return showFaq(text);
+
     say(
       text,
-      "Thanks for your message! For a detailed answer, our design team is best placed to help directly.",
+      `Thanks for your message! For a detailed answer, our design team is best placed to help directly.\n\nYou can also ask me about curtains, sofas, blackout fabric, outdoor fabric, or our catalogs.\n\n${CONTACT_LINE}`,
       [
         {
           label: "Chat With Us on WhatsApp",
           onSelect: () => window.open(site.whatsappWithMessage, "_blank"),
         },
-        { label: "Book a Consultation", onSelect: showBooking },
+        { label: "Book a Consultation", onSelect: () => showBooking() },
         { label: "⟵ Back to Menu", onSelect: backToMenu },
       ]
     );
@@ -335,20 +395,23 @@ export default function AIAssistant() {
     <>
       <button
         className="ai-assistant-float"
-        aria-label={open ? "Close design assistant" : "Open design assistant"}
+        aria-label={open ? "Close AI sales assistant" : "Open AI sales assistant"}
         onClick={() => setOpen((v) => !v)}
       >
-        <i className={`fa-solid ${open ? "fa-xmark" : "fa-comment-dots"}`} />
+        {!open && <span className="ai-assistant-badge">AI</span>}
+        <i className={`fa-solid ${open ? "fa-xmark" : "fa-comments"}`} />
       </button>
 
       {open && (
         <div className="ai-assistant-panel" ref={panelRef}>
           <div className="ai-assistant-header">
             <div className="ai-assistant-identity">
-              <Logo size={36} />
+              <div className="ai-assistant-avatar">
+                <i className="fa-solid fa-user-tie" />
+              </div>
               <div>
-                <strong>Damask AI Assistant</strong>
-                <span>Usually replies instantly</span>
+                <strong>Damask AI Sales Assistant</strong>
+                <span>Online • Your Textile Showroom Guide</span>
               </div>
             </div>
             <button aria-label="Close" onClick={() => setOpen(false)}>
@@ -388,7 +451,7 @@ export default function AIAssistant() {
           <form className="ai-assistant-input" onSubmit={handleFreeText}>
             <input
               type="text"
-              placeholder="Type your question..."
+              placeholder="Ask about curtains, sofas, blackout fabric..."
               value={inputValue}
               onChange={(e) => setInputValue(e.target.value)}
             />

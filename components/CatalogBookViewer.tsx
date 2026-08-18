@@ -1,7 +1,6 @@
 "use client";
 
 import React, { useEffect, useRef, useState } from "react";
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
 import HTMLFlipBook from "react-pageflip";
 import type { FabricSpec } from "@/lib/data/catalogs";
 
@@ -101,7 +100,6 @@ export default function CatalogBookViewer({ pages, name }: { pages: BookPage[]; 
 
         <div className="catalog-book-frame">
           <div className={`catalog-book-spine${book.spread ? " is-visible" : ""}`} aria-hidden="true" />
-          {/* eslint-disable-next-line @typescript-eslint/no-explicit-any */}
           <HTMLFlipBook
             key={`${book.width}x${book.height}x${book.spread}`}
             width={book.width}

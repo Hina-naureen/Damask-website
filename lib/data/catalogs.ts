@@ -101,9 +101,9 @@ const rawCatalogs: Omit<Catalog, "pdf">[] = [
     cover: "/catalogs/blackout-fabric/cover.jpg",
     fabrics: buildFabrics(
       "/catalogs/blackout-fabric",
-      41,
+      40,
       Object.fromEntries(
-        Array.from({ length: 41 }, (_, i) => [
+        Array.from({ length: 40 }, (_, i) => [
           i + 1,
           {
             catNo: "DC-801",

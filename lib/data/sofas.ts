@@ -23,13 +23,6 @@ export const sofas: Product[] = [
     imageId: "1560185009-5bf9f2849488",
   },
   {
-    slug: "luxury-sofa",
-    name: "Luxury Sofa",
-    description:
-      "Statement seating crafted from premium upholstery for an elevated living room.",
-    imageId: "1618221195710-dd6b41faaea6",
-  },
-  {
     slug: "sectional-sofa",
     name: "Sectional Sofa",
     description:

@@ -56,17 +56,18 @@ export default function Hero() {
       </div>
       <SparkleField />
       <div className="container hero-content" ref={contentRef}>
-        <p className="eyebrow reveal-item">Premium Interior Design Studio — Karachi, Pakistan</p>
+        <p className="eyebrow reveal-item">Pakistan&rsquo;s Trusted Wholesale Textile Supplier</p>
         <h1 className="reveal-item">
-          Transform Your Space Into A <span>Luxury Experience</span>
+          Premium Fabrics For Every <span>Luxury Interior</span>
         </h1>
         <p className="hero-sub reveal-item">
-          Premium Interior Design Solutions For Homes, Offices &amp; Luxury Spaces
+          Supplying curtains, upholstery, blackout &amp; drapery fabric to showrooms, designers
+          and businesses across Pakistan
         </p>
         <div className="hero-actions reveal-item">
           <Magnetic>
             <Link href="/#contact" className="btn btn-primary">
-              Book Consultation
+              Get Wholesale Pricing
             </Link>
           </Magnetic>
           <Magnetic>
@@ -76,7 +77,7 @@ export default function Hero() {
           </Magnetic>
           <Magnetic>
             <Link href="/#collections" className="btn btn-outline">
-              Explore Our Designs
+              Explore Collections
             </Link>
           </Magnetic>
         </div>

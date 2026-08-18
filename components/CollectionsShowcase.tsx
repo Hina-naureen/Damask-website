@@ -9,31 +9,36 @@ const collections = [
     href: "/curtains",
     title: "Curtain Collection",
     desc: "Velvet, silk, sheer & designer drapery",
-    imageId: "1554295405-abb8fd54f153",
+    image: "/curtain-collection/photo-1.jpg",
+    overlayLight: false,
   },
   {
     href: "/sofas",
     title: "Sofa Collection",
     desc: "Chesterfield, sectional, leather & custom",
-    imageId: "1617806118233-18e1de247200",
+    image: "/luxury-sofa/photo-4.jpg",
+    overlayLight: false,
   },
   {
-    href: "/cushions",
-    title: "Cushion Collection",
-    desc: "Velvet, printed, knit & custom covers",
-    imageId: "1531592762598-58a792d73aed",
+    href: "/outdoor-fabric",
+    title: "Outdoor Fabric Collection",
+    desc: "Weather-resistant, fade-proof outdoor fabric",
+    image: "/outdoor-fabric/photo-1.jpg",
+    overlayLight: true,
   },
   {
     href: "/fabrics",
     title: "Fabric Collection",
     desc: "Velvet, leather, linen & jacquard damask",
-    imageId: "1771098206750-6be5aef4f503",
+    image: uw("1771098206750-6be5aef4f503", 800),
+    overlayLight: false,
   },
   {
-    href: "/furniture",
-    title: "Furniture Collection",
-    desc: "Tables, cabinets, lighting & ceilings",
-    imageId: "1604014237800-1c9102c219da",
+    href: "/catalogs/blackout-fabric",
+    title: "Blackout Collection",
+    desc: "100% blackout curtains with heat & sound insulation",
+    image: "/blackout-collection/photo-9.jpg",
+    overlayLight: true,
   },
 ];
 
@@ -45,8 +50,8 @@ export default function CollectionsShowcase() {
           <p className="eyebrow">The Showroom</p>
           <h2>Explore Our Collections</h2>
           <p className="section-desc">
-            Five curated catalogues of premium interior products, each styled and photographed to
-            showroom standard.
+            Five wholesale-ready fabric collections, each styled and photographed to showroom
+            standard.
           </p>
         </Reveal>
 
@@ -55,12 +60,12 @@ export default function CollectionsShowcase() {
             <Link href={c.href} className="collection-card" key={c.href}>
               <div className="collection-media">
                 <Image
-                  src={uw(c.imageId, 800)}
+                  src={c.image}
                   alt={c.title}
                   fill
                   sizes="(max-width: 700px) 100vw, (max-width: 1080px) 50vw, 20vw"
                 />
-                <div className="collection-overlay" />
+                <div className={`collection-overlay${c.overlayLight ? " collection-overlay-light" : ""}`} />
               </div>
               <div className="collection-body">
                 <h3>{c.title}</h3>

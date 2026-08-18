@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import CatalogGrid from "@/components/CatalogGrid";
 import Reveal from "@/components/Reveal";
 import CtaBanner from "@/components/CtaBanner";
@@ -16,9 +17,9 @@ export default function CatalogsPage() {
       <section className="catalogs-page-header">
         <div className="container">
           <div className="breadcrumb" style={{ color: "rgba(33, 28, 24, 0.55)" }}>
-            <a href="/" style={{ color: "var(--orange)" }}>
+            <Link href="/" style={{ color: "var(--orange)" }}>
               Home
-            </a>{" "}
+            </Link>{" "}
             <span>/</span> <span>Catalogs</span>
           </div>
           <p className="eyebrow">Fabric Library</p>

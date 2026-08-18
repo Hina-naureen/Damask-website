@@ -1,10 +1,8 @@
 import type { Metadata } from "next";
 import PageHero from "@/components/PageHero";
-import ProductGrid from "@/components/ProductGrid";
-import Reveal from "@/components/Reveal";
 import CtaBanner from "@/components/CtaBanner";
 import CollectionCrossLinks from "@/components/CollectionCrossLinks";
-import { sofas } from "@/lib/data/sofas";
+import LuxurySofaShowcase from "@/components/LuxurySofaShowcase";
 
 export const metadata: Metadata = {
   title: "Premium Sofa Collection | Damask Textile Pakistan",
@@ -23,19 +21,7 @@ export default function SofasPage() {
         crumb="Sofas"
       />
 
-      <section className="portfolio">
-        <div className="container">
-          <Reveal className="section-head">
-            <p className="eyebrow">Showroom</p>
-            <h2>Sofa Styles &amp; Upholstery</h2>
-            <p className="section-desc">
-              Each design is available in a range of premium fabrics, leathers and finishes,
-              tailored to your space.
-            </p>
-          </Reveal>
-          <ProductGrid products={sofas} />
-        </div>
-      </section>
+      <LuxurySofaShowcase />
 
       <CtaBanner />
 

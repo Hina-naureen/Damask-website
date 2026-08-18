@@ -10,14 +10,16 @@ import { uw } from "@/lib/unsplash";
 gsap.registerPlugin(ScrollTrigger);
 
 type PageHeroProps = {
-  imageId: string;
+  imageId?: string;
+  image?: string;
   eyebrow: string;
   title: string;
   description: string;
   crumb: string;
 };
 
-export default function PageHero({ imageId, eyebrow, title, description, crumb }: PageHeroProps) {
+export default function PageHero({ imageId, image, eyebrow, title, description, crumb }: PageHeroProps) {
+  const src = image ?? uw(imageId ?? "", 1920);
   const mediaRef = useRef<HTMLDivElement>(null);
   const contentRef = useRef<HTMLDivElement>(null);
 
@@ -52,7 +54,7 @@ export default function PageHero({ imageId, eyebrow, title, description, crumb }
   return (
     <section className="page-hero">
       <div className="hero-media" ref={mediaRef} style={{ inset: "-8% 0 0 0" }}>
-        <Image src={uw(imageId, 1920)} alt={title} fill priority sizes="100vw" />
+        <Image src={src} alt={title} fill priority sizes="100vw" />
         <div className="hero-overlay" />
       </div>
       <div className="container page-hero-content" ref={contentRef}>

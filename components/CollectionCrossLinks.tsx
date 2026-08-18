@@ -3,9 +3,9 @@ import Link from "next/link";
 const allCollections = [
   { href: "/curtains", label: "Curtain Collection" },
   { href: "/sofas", label: "Sofa Collection" },
-  { href: "/cushions", label: "Cushion Collection" },
+  { href: "/outdoor-fabric", label: "Outdoor Fabric Collection" },
   { href: "/fabrics", label: "Fabric Collection" },
-  { href: "/furniture", label: "Furniture Collection" },
+  { href: "/catalogs/blackout-fabric", label: "Blackout Collection" },
 ];
 
 export default function CollectionCrossLinks({ current }: { current: string }) {

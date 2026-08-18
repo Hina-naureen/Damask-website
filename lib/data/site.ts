@@ -26,7 +26,7 @@ export const navLinks = [
 export const collectionLinks = [
   { label: "Curtain Collection", href: "/curtains" },
   { label: "Sofa Collection", href: "/sofas" },
-  { label: "Cushion Collection", href: "/cushions" },
+  { label: "Outdoor Fabric Collection", href: "/outdoor-fabric" },
   { label: "Fabric Collection", href: "/fabrics" },
-  { label: "Furniture Collection", href: "/furniture" },
+  { label: "Blackout Collection", href: "/catalogs/blackout-fabric" },
 ];

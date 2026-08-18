@@ -5,7 +5,11 @@ import CatalogBookViewer, { type BookPage } from "@/components/CatalogBookViewer
 import FabricGallery from "@/components/FabricGallery";
 import Reveal from "@/components/Reveal";
 import CtaBanner from "@/components/CtaBanner";
+import MediaShowcase from "@/components/MediaShowcase";
 import { catalogs, getCatalog } from "@/lib/data/catalogs";
+
+const BLACKOUT_PHOTOS = Array.from({ length: 9 }, (_, i) => `/blackout-collection/photo-${i + 1}.jpg`);
+const BLACKOUT_VIDEOS = Array.from({ length: 5 }, (_, i) => `/blackout-collection/video-${i + 1}.mp4`);
 
 export function generateStaticParams() {
   return catalogs.map((c) => ({ slug: c.slug }));
@@ -54,33 +58,65 @@ export default async function CatalogDetailPage({
     <main>
       <CatalogIntro catalog={catalog} />
 
-      <section className="portfolio">
-        <div className="container">
-          <Reveal className="section-head">
-            <p className="eyebrow">Browse Like A Book</p>
-            <h2>Flip Through The Catalog</h2>
-            <p className="section-desc">
-              A realistic page-turning preview — each fabric with a written detail sheet opens
-              facing its matching detail page, just like the printed catalog.
-            </p>
-          </Reveal>
-          <CatalogBookViewer pages={bookPages} name={catalog.name} />
-        </div>
-      </section>
+      {catalog.slug === "blackout-fabric" && (
+        <MediaShowcase
+          id="blackout-showcase"
+          eyebrow="Signature Showroom"
+          title="Blackout Collection"
+          description="A closer look at our 100% blackout curtains — heat, sound and light-blocking fabric captured in photos and video."
+          cardLabel="Blackout Collection"
+          photos={BLACKOUT_PHOTOS}
+          videos={BLACKOUT_VIDEOS}
+          details={{
+            description:
+              "4-pass luxurious blackout fabric — 100% blackout with UV protection, heat insulation, anti-sticking finish and washable care.",
+            features: [
+              "100% 4-pass silicon blackout",
+              "UV protection & heat insulation",
+              "Sound-dampening, anti-sticking finish",
+              "Washable & easy to maintain — 280cm width, 100% Polyester",
+            ],
+            applications: [
+              "Curtains & drapery",
+              "Wall covering",
+              "Soft upholstery",
+              "Bedrooms, home theatres & hotels",
+            ],
+          }}
+        />
+      )}
 
-      <section className="portfolio">
-        <div className="container">
-          <Reveal className="section-head">
-            <p className="eyebrow">Full Swatch Library</p>
-            <h2>{catalog.fabrics.length} Fabrics In This Collection</h2>
-            <p className="section-desc">
-              Click any fabric to view its detail sheet up close — use the arrows to move through
-              the collection.
-            </p>
-          </Reveal>
-          <FabricGallery fabrics={catalog.fabrics} catalogName={catalog.name} />
-        </div>
-      </section>
+      {catalog.fabrics.length > 0 && (
+        <>
+          <section className="portfolio">
+            <div className="container">
+              <Reveal className="section-head">
+                <p className="eyebrow">Browse Like A Book</p>
+                <h2>Flip Through The Catalog</h2>
+                <p className="section-desc">
+                  A realistic page-turning preview — each fabric with a written detail sheet opens
+                  facing its matching detail page, just like the printed catalog.
+                </p>
+              </Reveal>
+              <CatalogBookViewer pages={bookPages} name={catalog.name} />
+            </div>
+          </section>
+
+          <section className="portfolio">
+            <div className="container">
+              <Reveal className="section-head">
+                <p className="eyebrow">Full Swatch Library</p>
+                <h2>{catalog.fabrics.length} Fabrics In This Collection</h2>
+                <p className="section-desc">
+                  Click any fabric to view its detail sheet up close — use the arrows to move
+                  through the collection.
+                </p>
+              </Reveal>
+              <FabricGallery fabrics={catalog.fabrics} catalogName={catalog.name} />
+            </div>
+          </section>
+        </>
+      )}
 
       <CtaBanner />
     </main>

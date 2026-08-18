@@ -4,6 +4,7 @@ import ProductGrid from "@/components/ProductGrid";
 import Reveal from "@/components/Reveal";
 import CtaBanner from "@/components/CtaBanner";
 import CollectionCrossLinks from "@/components/CollectionCrossLinks";
+import CurtainShowcase from "@/components/CurtainShowcase";
 import { curtains, curtainCategories } from "@/lib/data/curtains";
 
 export const metadata: Metadata = {
@@ -22,6 +23,8 @@ export default function CurtainsPage() {
         description="From heavyweight velvet to motorized smart curtains, discover 23 premium styles crafted to elevate every window and door in your home."
         crumb="Curtains"
       />
+
+      <CurtainShowcase />
 
       <section className="portfolio">
         <div className="container">
