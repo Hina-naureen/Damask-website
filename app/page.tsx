@@ -11,9 +11,9 @@ export default function Home() {
   return (
     <main>
       <Hero />
+      <CollectionsShowcase />
       <Stats />
       <About />
-      <CollectionsShowcase />
       <WhyUs />
       <Testimonials />
       <CtaBanner />
