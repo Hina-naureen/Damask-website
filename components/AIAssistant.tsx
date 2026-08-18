@@ -20,6 +20,8 @@ const GREETING =
 
 const CONTACT_LINE = `For detailed pricing and fabric availability, you can contact our representative Azeem:\n📞 ${site.phonePrimary}`;
 
+const EMOJI_PATTERN = /[\u{1F300}-\u{1FAFF}\u{2600}-\u{27BF}\u{2190}-\u{21FF}]/gu;
+
 export default function AIAssistant() {
   const router = useRouter();
   const [open, setOpen] = useState(false);
@@ -29,6 +31,22 @@ export default function AIAssistant() {
   const [inputValue, setInputValue] = useState("");
   const panelRef = useRef<HTMLDivElement>(null);
   const threadRef = useRef<HTMLDivElement>(null);
+
+  // --- Voice: speech-to-text (mic input) and text-to-speech (bot reads replies aloud)
+  const [sttSupported, setSttSupported] = useState(false);
+  const [ttsSupported, setTtsSupported] = useState(false);
+  const [listening, setListening] = useState(false);
+  const [voiceOn, setVoiceOn] = useState(false);
+  const recognitionRef = useRef<any>(null);
+  const spokenCountRef = useRef(0);
+
+  useEffect(() => {
+    if (typeof window === "undefined") return;
+    const SpeechRecognitionCtor =
+      (window as any).SpeechRecognition || (window as any).webkitSpeechRecognition;
+    setSttSupported(Boolean(SpeechRecognitionCtor));
+    setTtsSupported("speechSynthesis" in window);
+  }, []);
 
   useEffect(() => {
     if (threadRef.current) {
@@ -47,6 +65,36 @@ export default function AIAssistant() {
       );
     }
   }, [open]);
+
+  // Speak newly-arrived bot messages when voice replies are enabled.
+  useEffect(() => {
+    if (!voiceOn || !ttsSupported || typing) return;
+    if (messages.length <= spokenCountRef.current) return;
+    spokenCountRef.current = messages.length;
+    const last = messages[messages.length - 1];
+    if (last.role !== "bot") return;
+
+    const utterance = new SpeechSynthesisUtterance(last.text.replace(EMOJI_PATTERN, "").trim());
+    utterance.lang = "en-US";
+    utterance.rate = 1;
+    utterance.pitch = 1;
+    window.speechSynthesis.cancel();
+    window.speechSynthesis.speak(utterance);
+  }, [messages, typing, voiceOn, ttsSupported]);
+
+  // Stop any speech when the panel closes or voice replies are turned off.
+  useEffect(() => {
+    if ((!open || !voiceOn) && ttsSupported) {
+      window.speechSynthesis.cancel();
+    }
+  }, [open, voiceOn, ttsSupported]);
+
+  useEffect(() => {
+    return () => {
+      recognitionRef.current?.stop();
+      if (ttsSupported) window.speechSynthesis.cancel();
+    };
+  }, [ttsSupported]);
 
   function say(userText: string | null, botText: string, nextOptions: QuickReply[]) {
     if (userText) {
@@ -359,11 +407,8 @@ export default function AIAssistant() {
     ];
   }
 
-  function handleFreeText(e: React.FormEvent) {
-    e.preventDefault();
-    const text = inputValue.trim();
-    if (!text) return;
-    setInputValue("");
+  function submitText(text: string) {
+    if (!text.trim()) return;
     const q = text.toLowerCase();
 
     if (/blackout/.test(q)) return showBlackoutIntro(text);
@@ -391,6 +436,60 @@ export default function AIAssistant() {
     );
   }
 
+  function handleFreeText(e: React.FormEvent) {
+    e.preventDefault();
+    const text = inputValue.trim();
+    if (!text) return;
+    setInputValue("");
+    submitText(text);
+  }
+
+  function toggleListening() {
+    if (typeof window === "undefined" || !sttSupported) return;
+
+    if (listening) {
+      recognitionRef.current?.stop();
+      return;
+    }
+
+    const SpeechRecognitionCtor =
+      (window as any).SpeechRecognition || (window as any).webkitSpeechRecognition;
+    const recognition = new SpeechRecognitionCtor();
+    recognition.lang = "en-US";
+    recognition.interimResults = true;
+    recognition.maxAlternatives = 1;
+
+    recognition.onresult = (event: any) => {
+      let transcript = "";
+      for (let i = event.resultIndex; i < event.results.length; i++) {
+        transcript += event.results[i][0].transcript;
+      }
+      setInputValue(transcript);
+    };
+    recognition.onerror = () => setListening(false);
+    recognition.onend = () => {
+      setListening(false);
+      recognitionRef.current = null;
+      setInputValue((current) => {
+        const text = current.trim();
+        if (text) submitText(text);
+        return "";
+      });
+    };
+
+    recognitionRef.current = recognition;
+    setListening(true);
+    recognition.start();
+  }
+
+  function toggleVoiceReplies() {
+    if (!ttsSupported) return;
+    setVoiceOn((v) => {
+      if (v) window.speechSynthesis.cancel();
+      return !v;
+    });
+  }
+
   return (
     <>
       <button
@@ -414,9 +513,23 @@ export default function AIAssistant() {
                 <span>Online • Your Textile Showroom Guide</span>
               </div>
             </div>
-            <button aria-label="Close" onClick={() => setOpen(false)}>
-              <i className="fa-solid fa-xmark" />
-            </button>
+            <div className="ai-assistant-header-actions">
+              {ttsSupported && (
+                <button
+                  type="button"
+                  aria-label={voiceOn ? "Turn off voice replies" : "Turn on voice replies"}
+                  aria-pressed={voiceOn}
+                  className={voiceOn ? "ai-voice-toggle-on" : ""}
+                  onClick={toggleVoiceReplies}
+                  title={voiceOn ? "Voice replies on" : "Voice replies off"}
+                >
+                  <i className={`fa-solid ${voiceOn ? "fa-volume-high" : "fa-volume-xmark"}`} />
+                </button>
+              )}
+              <button aria-label="Close" onClick={() => setOpen(false)}>
+                <i className="fa-solid fa-xmark" />
+              </button>
+            </div>
           </div>
 
           <div className="ai-assistant-thread" ref={threadRef}>
@@ -449,9 +562,21 @@ export default function AIAssistant() {
           </div>
 
           <form className="ai-assistant-input" onSubmit={handleFreeText}>
+            {sttSupported && (
+              <button
+                type="button"
+                className={listening ? "ai-mic-btn ai-mic-listening" : "ai-mic-btn"}
+                aria-label={listening ? "Stop voice input" : "Speak your question"}
+                aria-pressed={listening}
+                onClick={toggleListening}
+                title={listening ? "Listening… tap to stop" : "Tap to speak"}
+              >
+                <i className="fa-solid fa-microphone" />
+              </button>
+            )}
             <input
               type="text"
-              placeholder="Ask about curtains, sofas, blackout fabric..."
+              placeholder={listening ? "Listening…" : "Ask about curtains, sofas, blackout fabric..."}
               value={inputValue}
               onChange={(e) => setInputValue(e.target.value)}
             />
