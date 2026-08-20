@@ -49,7 +49,7 @@ const rawCatalogs: Omit<Catalog, "pdf">[] = [
     slug: "almas-1010",
     name: "Almas Collection",
     catalogNo: "DC-1010",
-    description: "Sheer curtain lining with a soft vertical drape, width 300cm — designed for airy, light-filled interiors.",
+    description: "Sheer curtain lining with a soft vertical drape, width 300cm, designed for airy, light-filled interiors.",
     cover: "/catalogs/almas-1010/cover.jpg",
     fabrics: buildFabrics(
       "/catalogs/almas-1010",
@@ -71,7 +71,7 @@ const rawCatalogs: Omit<Catalog, "pdf">[] = [
     slug: "almas-1012",
     name: "Almas Collection",
     catalogNo: "DC-1012",
-    description: "Premium drapery fabric, width 300-330cm, from the Almas line — refined texture for statement living spaces.",
+    description: "Premium drapery fabric, width 300-330cm, from the Almas line, refined texture for statement living spaces.",
     cover: "/catalogs/almas-1012/cover.jpg",
     backCover: "/catalogs/almas-1012/99.jpg",
     fabrics: buildFabrics(
@@ -97,7 +97,7 @@ const rawCatalogs: Omit<Catalog, "pdf">[] = [
     slug: "blackout-fabric",
     name: "Blackout Fabric Collection",
     catalogNo: "DC-801",
-    description: "4-pass luxurious blackout fabric — 100% blackout with UV protection, heat insulation, anti-sticking finish and washable care.",
+    description: "4-pass luxurious blackout fabric, 100% blackout with UV protection, heat insulation, anti-sticking finish and washable care.",
     cover: "/catalogs/blackout-fabric/cover.jpg",
     fabrics: buildFabrics(
       "/catalogs/blackout-fabric",
@@ -122,7 +122,7 @@ const rawCatalogs: Omit<Catalog, "pdf">[] = [
     slug: "damask-classic",
     name: "Damask Classic Collection",
     catalogNo: "DC-1004",
-    description: "Our signature classic weaves — timeless jacquard and textured patterns for elegant, traditional interiors.",
+    description: "Our signature classic weaves, timeless jacquard and textured patterns for elegant, traditional interiors.",
     cover: "/catalogs/damask-classic/cover.jpg",
     fabrics: buildFabrics(
       "/catalogs/damask-classic",
@@ -147,7 +147,7 @@ const rawCatalogs: Omit<Catalog, "pdf">[] = [
     slug: "linen-sofa",
     name: "Linen Sofa Collection",
     catalogNo: "DC-1007",
-    description: "Water-repellent linen upholstery fabric, width 142cm — durable, soft-touch material for sofas and upholstered furniture.",
+    description: "Water-repellent linen upholstery fabric, width 142cm, durable, soft-touch material for sofas and upholstered furniture.",
     cover: "/catalogs/linen-sofa/cover.jpg",
     secondaryCover: "/catalogs/linen-sofa/detail-1.jpg",
     fabrics: buildFabrics(
@@ -174,7 +174,7 @@ const rawCatalogs: Omit<Catalog, "pdf">[] = [
     slug: "new-arrival-1008",
     name: "New Arrival Collection",
     catalogNo: "DC-1008",
-    description: "Our newest curtain fabric, width 340cm with leadband — fresh weaves and colourways just added to the showroom.",
+    description: "Our newest curtain fabric, width 340cm with leadband, fresh weaves and colourways just added to the collection.",
     cover: "/catalogs/new-arrival-1008/cover.jpg",
     fabrics: buildFabrics("/catalogs/new-arrival-1008", 26, {}, {
       catNo: "DC-1008",
@@ -188,7 +188,7 @@ const rawCatalogs: Omit<Catalog, "pdf">[] = [
     slug: "water-repellent-408",
     name: "Water Repellent Fabric Collection",
     catalogNo: "DC-408",
-    description: "Home Expressions water-repellent upholstery fabric, width 145cm ±2cm — built for everyday comfort and easy care.",
+    description: "Home Expressions water-repellent upholstery fabric, width 145cm ±2cm, built for everyday comfort and easy care.",
     cover: "/catalogs/water-repellent-408/cover.jpg",
     fabrics: buildFabrics(
       "/catalogs/water-repellent-408",

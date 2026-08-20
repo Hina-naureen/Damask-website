@@ -56,7 +56,7 @@ export default function MediaShowcase({
                 <div className="product-frame" />
                 <Image
                   src={src}
-                  alt={`${cardLabel} — photo ${i + 1}`}
+                  alt={`${cardLabel} photo ${i + 1}`}
                   fill
                   sizes="(max-width: 700px) 50vw, (max-width: 1080px) 33vw, 25vw"
                 />

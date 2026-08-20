@@ -8,7 +8,7 @@ import { catalogs } from "@/lib/data/catalogs";
 export const metadata: Metadata = {
   title: "Fabric Catalogs | Damask Textile Pakistan",
   description:
-    "Browse all Damask Textile Pakistan fabric catalogs — Almas Collection, Damask Classic, Blackout Fabric, Linen Sofa, New Arrivals and Water Repellent Fabric, organized by catalog number.",
+    "Browse all Damask Textile Pakistan fabric catalogs, including Almas Collection, Damask Classic, Blackout Fabric, Linen Sofa, New Arrivals and Water Repellent Fabric, organized by catalog number.",
 };
 
 export default function CatalogsPage() {
@@ -25,16 +25,16 @@ export default function CatalogsPage() {
           <p className="eyebrow">Fabric Library</p>
           <h1>Our Fabric Catalogs</h1>
           <p className="section-desc" style={{ margin: "12px 0 0", maxWidth: 640 }}>
-            Every catalog we carry, organized by collection and catalog number — browse the full
+            Every catalog we carry, organized by collection and catalog number. Browse the full
             swatch library before booking your consultation.
           </p>
         </div>
       </section>
 
-      <section className="portfolio">
+      <section className="catalog-library-section">
         <div className="container">
           <Reveal className="section-head">
-            <p className="eyebrow">Showroom</p>
+            <p className="eyebrow">Library</p>
             <h2>Browse By Collection</h2>
             <p className="section-desc">
               Each catalog opens with its cover, followed by fabric detail sheets and the full

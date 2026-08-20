@@ -61,7 +61,7 @@ export default function Hero() {
           Premium Fabrics For Every <span>Luxury Interior</span>
         </h1>
         <p className="hero-sub reveal-item">
-          Supplying curtains, upholstery, blackout &amp; drapery fabric to showrooms, designers
+          Supplying curtains, upholstery, blackout &amp; drapery fabric to retailers, designers
           and businesses across Pakistan
         </p>
         <div className="hero-actions reveal-item">

@@ -14,7 +14,7 @@ export default function CollectionCrossLinks({ current }: { current: string }) {
   return (
     <section style={{ padding: "60px 0" }}>
       <div className="container" style={{ textAlign: "center" }}>
-        <p className="section-desc">Explore our other showroom collections.</p>
+        <p className="section-desc">Explore our other collections.</p>
         <div className="hero-actions" style={{ justifyContent: "center", flexWrap: "wrap" }}>
           {others.map((c) => (
             <Link href={c.href} className="btn btn-dark btn-sm" key={c.href}>

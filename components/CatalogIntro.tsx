@@ -35,7 +35,7 @@ export default function CatalogIntro({ catalog }: { catalog: Catalog }) {
             {catalog.fabrics.length > 0 ? (
               <p>{catalog.fabrics.length} fabrics in this collection, professionally photographed for easy reference.</p>
             ) : (
-              <p>Full fabric range available in our downloadable catalog — contact us for physical samples.</p>
+              <p>Full fabric range available in our downloadable catalog. Contact us for physical samples.</p>
             )}
             <div className="hero-actions">
               <Link href="/#contact" className="btn btn-primary">

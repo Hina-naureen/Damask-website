@@ -11,17 +11,17 @@ const reasons = [
   {
     icon: "fa-solid fa-truck-fast",
     title: "Wholesale Supply Across Pakistan",
-    desc: "Reliable bulk supply to showrooms, retailers and businesses nationwide.",
+    desc: "Reliable bulk supply to retailers and businesses nationwide.",
   },
   {
     icon: "fa-solid fa-building-user",
     title: "Trusted By Interior Businesses",
-    desc: "Furniture stores, interior designers and showrooms rely on us for stock they can count on.",
+    desc: "Furniture stores and interior designers rely on us for stock they can count on.",
   },
   {
     icon: "fa-solid fa-layer-group",
     title: "Wide Range Of Textile Collections",
-    desc: "Curtains, upholstery, blackout, outdoor and specialty fabrics — all under one supplier.",
+    desc: "Curtains, upholstery, blackout, outdoor and specialty fabrics, all under one supplier.",
   },
   {
     icon: "fa-solid fa-user-tie",
@@ -45,7 +45,7 @@ export default function WhyUs() {
           <p className="eyebrow">Why Choose Damask Textile Pakistan</p>
           <h2>Pakistan&rsquo;s Trusted Wholesale Textile Supplier</h2>
           <p className="section-desc">
-            Supplying premium interior fabrics to furniture stores, interior designers, showrooms
+            Supplying premium interior fabrics to furniture stores, interior designers
             and businesses across Pakistan.
           </p>
         </Reveal>

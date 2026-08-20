@@ -39,13 +39,13 @@ export default async function CatalogDetailPage({
   if (!catalog) notFound();
 
   const bookPages: BookPage[] = [
-    { type: "cover", src: catalog.cover, label: `${catalog.name} — Cover` },
+    { type: "cover", src: catalog.cover, label: `${catalog.name} Cover` },
     ...catalog.fabrics.flatMap((f): BookPage[] => {
       const page: BookPage[] = [{ type: "fabric", src: f.image, label: `Fabric ${f.number}` }];
       if (f.spec) {
         page.push({
           type: "detail",
-          label: `Fabric ${f.number} — Specification`,
+          label: `Fabric ${f.number} Specification`,
           fabricNumber: f.number,
           spec: f.spec,
         });
@@ -61,20 +61,20 @@ export default async function CatalogDetailPage({
       {catalog.slug === "blackout-fabric" && (
         <MediaShowcase
           id="blackout-showcase"
-          eyebrow="Signature Showroom"
+          eyebrow="Signature Collection"
           title="Blackout Collection"
-          description="A closer look at our 100% blackout curtains — heat, sound and light-blocking fabric captured in photos and video."
+          description="A closer look at our 100% blackout curtains, heat, sound and light-blocking fabric captured in photos and video."
           cardLabel="Blackout Collection"
           photos={BLACKOUT_PHOTOS}
           videos={BLACKOUT_VIDEOS}
           details={{
             description:
-              "4-pass luxurious blackout fabric — 100% blackout with UV protection, heat insulation, anti-sticking finish and washable care.",
+              "4-pass luxurious blackout fabric, 100% blackout with UV protection, heat insulation, anti-sticking finish and washable care.",
             features: [
               "100% 4-pass silicon blackout",
               "UV protection & heat insulation",
               "Sound-dampening, anti-sticking finish",
-              "Washable & easy to maintain — 280cm width, 100% Polyester",
+              "Washable & easy to maintain, 280cm width, 100% Polyester",
             ],
             applications: [
               "Curtains & drapery",
@@ -94,7 +94,7 @@ export default async function CatalogDetailPage({
                 <p className="eyebrow">Browse Like A Book</p>
                 <h2>Flip Through The Catalog</h2>
                 <p className="section-desc">
-                  A realistic page-turning preview — each fabric with a written detail sheet opens
+                  A realistic page-turning preview, each fabric with a written detail sheet opens
                   facing its matching detail page, just like the printed catalog.
                 </p>
               </Reveal>
@@ -108,7 +108,7 @@ export default async function CatalogDetailPage({
                 <p className="eyebrow">Full Swatch Library</p>
                 <h2>{catalog.fabrics.length} Fabrics In This Collection</h2>
                 <p className="section-desc">
-                  Click any fabric to view its detail sheet up close — use the arrows to move
+                  Click any fabric to view its detail sheet up close. Use the arrows to move
                   through the collection.
                 </p>
               </Reveal>

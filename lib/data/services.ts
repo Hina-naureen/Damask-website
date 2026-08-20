@@ -28,7 +28,7 @@ export const services: Service[] = [
     title: "Curtain & Textile Solutions",
     icon: "fa-solid fa-scroll",
     imageId: "1616137466211-f939a420be84",
-    items: ["Premium Curtains", "Designer Fabrics", "Window Styling", "Luxury Drapes", "Modern Blinds"],
+    items: ["Premium Curtains", "Designer Fabrics", "Window Styling", "Sheer Drapery", "Door Curtains"],
     href: "/curtains",
   },
   {

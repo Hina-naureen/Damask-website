@@ -9,7 +9,7 @@ import { catalogs } from "@/lib/data/catalogs";
 export const metadata: Metadata = {
   title: "Designer Fabric Collection | Damask Textile Pakistan",
   description:
-    "Browse the Damask Textile Pakistan fabric catalogs — Almas Collection, Damask Classic, Blackout Fabric, Linen Sofa, New Arrivals and Water Repellent Fabric.",
+    "Browse the Damask Textile Pakistan fabric catalogs, including Almas Collection, Damask Classic, Blackout Fabric, Linen Sofa, New Arrivals and Water Repellent Fabric.",
 };
 
 export default function FabricsPage() {
@@ -19,7 +19,7 @@ export default function FabricsPage() {
         imageId="1771098206750-6be5aef4f503"
         eyebrow="Fabric Collection"
         title="Designer Fabric Collection"
-        description="From the same textile heritage as Damask Textile Pakistan — a curated library of premium fabrics for every finish."
+        description="From the same textile heritage as Damask Textile Pakistan, a curated library of premium fabrics for every finish."
         crumb="Fabrics"
       />
 

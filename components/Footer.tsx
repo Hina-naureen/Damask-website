@@ -15,8 +15,8 @@ export default function Footer() {
             </span>
           </Link>
           <p>
-            A premium wholesale supplier of interior fabrics — curtains, upholstery, drapery and
-            designer textiles — delivered to showrooms and buyers across Pakistan.
+            A premium wholesale supplier of interior fabrics, curtains, upholstery, drapery and
+            designer textiles, delivered to retailers and buyers across Pakistan.
           </p>
           <div className="social-icons">
             <a href="#" aria-label="Facebook">

@@ -19,14 +19,14 @@ export default function FurniturePage() {
         imageId="1604014237800-1c9102c219da"
         eyebrow="Furniture & Interior Collection"
         title="Furniture & Interior Collection"
-        description="Every finishing touch — from cushions and cabinets to lighting and ceiling design — styled as a complete, luxury interior."
+        description="Every finishing touch, from cushions and cabinets to lighting and ceiling design, styled as a complete, luxury interior."
         crumb="Furniture & Interior"
       />
 
       <section className="portfolio">
         <div className="container">
           <Reveal className="section-head">
-            <p className="eyebrow">Showroom</p>
+            <p className="eyebrow">Catalogue</p>
             <h2>Interior Elements &amp; Finishing</h2>
             <p className="section-desc">
               A complete catalogue of the details that turn a room into a fully realized interior.

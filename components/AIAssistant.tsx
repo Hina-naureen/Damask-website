@@ -126,7 +126,7 @@ export default function AIAssistant() {
   function backToMenu() {
     say(
       "Back to menu",
-      "Sure — what would you like to explore next?",
+      "Sure, what would you like to explore next?",
       mainMenuOptions()
     );
   }
@@ -134,7 +134,7 @@ export default function AIAssistant() {
   function showAboutBusiness(label = "About Damask Textile") {
     say(
       label,
-      "Damask Textile Pakistan, led by Azeem, is a premium wholesale fabric supplier — not a small retail shop. We supply premium interior fabrics for curtains, upholstery, drapery and designer interiors to showrooms, interior shops, designers and professional buyers across Pakistan.",
+      "Damask Textile Pakistan, led by Azeem, is a premium wholesale fabric supplier, not a small retail shop. We supply premium interior fabrics for curtains, upholstery, drapery and designer interiors to retailers, interior shops, designers and professional buyers across Pakistan.",
       [
         { label: "Browse Our Fabric Catalogs", onSelect: () => showCatalogInfo() },
         { label: "Book a Consultation", onSelect: () => showBooking() },
@@ -146,7 +146,7 @@ export default function AIAssistant() {
   function showCatalogInfo(label = "Browse Our Fabric Catalogs") {
     say(
       label,
-      "We carry a full range of fabric catalogs — Almas Collection, Damask Classic, Blackout Fabric, Linen Sofa, New Arrivals and Water Repellent Fabric. Each catalog opens as a flipbook with its cover, numbered fabric samples and full specification sheets, covering curtains, upholstery, drapery and jacquard designer fabrics.",
+      "We carry a full range of fabric catalogs: Almas Collection, Damask Classic, Blackout Fabric, Linen Sofa, New Arrivals and Water Repellent Fabric. Each catalog opens as a flipbook with its cover, numbered fabric samples and full specification sheets, covering curtains, upholstery, drapery and jacquard designer fabrics.",
       [
         {
           label: "Open Catalogs Page",
@@ -189,7 +189,7 @@ export default function AIAssistant() {
         onSelect: () =>
           say(
             "Modern & Minimal",
-            "For a clean, contemporary look we'd recommend our Modern, Eyelet or Roller Blind styles — simple lines that suit minimal interiors.",
+            "For a clean, contemporary look we'd recommend our Modern or Contemporary Curtain styles, simple lines that suit minimal interiors.",
             curtainFollowUp()
           ),
       },
@@ -198,7 +198,7 @@ export default function AIAssistant() {
         onSelect: () =>
           say(
             "Classic & Traditional",
-            "Classic spaces shine with our Classic, Pleated or Rod Pocket curtains — timeless folds with a tailored finish.",
+            "Classic spaces shine with our Dining Room or Bay Window curtain styles, timeless folds with a tailored finish.",
             curtainFollowUp()
           ),
       },
@@ -207,7 +207,7 @@ export default function AIAssistant() {
         onSelect: () =>
           say(
             "Luxury Hotel-Style",
-            "For that five-star feel, our Luxury Hotel-Style Curtains and Luxury Drapes in velvet or silk are the perfect statement piece.",
+            "For that five-star feel, our Luxury Hotel-Style Curtains and Dramatic Layered Drapes in velvet or silk are the perfect statement piece.",
             curtainFollowUp()
           ),
       },
@@ -216,7 +216,7 @@ export default function AIAssistant() {
         onSelect: () =>
           say(
             "Show me everything",
-            "Our Curtain Collection covers Window, Door and Special categories — velvet, silk, blackout, sheer, motorized and more, plus a dedicated photo & video showcase.",
+            "Our Curtain Collection covers Window, Door and Special categories: velvet, silk, blackout, sheer, motorized and more, plus a dedicated photo & video showcase.",
             curtainFollowUp()
           ),
       },
@@ -272,7 +272,7 @@ export default function AIAssistant() {
         onSelect: () =>
           say(
             "Fully custom design",
-            "Our Custom Designer Sofa service tailors everything — fabric, colour and dimensions — to your exact space. Don't miss our Luxury Sofa photo & video showcase too.",
+            "Our Custom Designer Sofa service tailors everything, fabric, colour and dimensions, to your exact space. Don't miss our Luxury Sofa photo & video showcase too.",
             sofaFollowUp()
           ),
       },
@@ -297,7 +297,7 @@ export default function AIAssistant() {
   function showOutdoorFabricIntro(label = "Need outdoor fabric") {
     say(
       label,
-      "Our Outdoor Fabric Collection is weather-resistant, fade-proof and built for patios, lounges, poolside furniture and al-fresco living — without compromising on luxury. It's mould & mildew resistant and easy to clean.",
+      "Our Outdoor Fabric Collection is weather-resistant, fade-proof and built for patios, lounges, poolside furniture and al-fresco living, without compromising on luxury. It's mould & mildew resistant and easy to clean.",
       [
         {
           label: "View Outdoor Fabric Collection",
@@ -315,7 +315,7 @@ export default function AIAssistant() {
   function showBlackoutIntro(label = "Need blackout fabric") {
     say(
       label,
-      "Our Blackout Collection is a 4-pass luxurious blackout fabric — 100% blackout with UV protection, heat insulation, sound-dampening and a washable, anti-sticking finish. Perfect for bedrooms, home theatres, hotels and offices.",
+      "Our Blackout Collection is a 4-pass luxurious blackout fabric, 100% blackout with UV protection, heat insulation, sound-dampening and a washable, anti-sticking finish. Perfect for bedrooms, home theatres, hotels and offices.",
       [
         {
           label: "View Blackout Collection",
@@ -333,7 +333,7 @@ export default function AIAssistant() {
   function showFabricCollectionIntro(label = "Fabric Collection") {
     say(
       label,
-      "Our general Fabric Collection covers velvet, leather, linen and jacquard damask — premium interior fabric for curtains, upholstery and custom projects.",
+      "Our general Fabric Collection covers velvet, leather, linen and jacquard damask, premium interior fabric for curtains, upholstery and custom projects.",
       [
         {
           label: "View Fabric Collection",
@@ -369,7 +369,7 @@ export default function AIAssistant() {
         onSelect: () =>
           say(
             "Are you wholesale or retail?",
-            "We're a wholesale fabric supplier. Damask Textile Pakistan supplies premium interior fabrics to showrooms, interior shops, designers and other professional buyers — we're not a small retail counter.",
+            "We're a wholesale fabric supplier. Damask Textile Pakistan supplies premium interior fabrics to retailers, interior shops, designers and other professional buyers. We're not a small retail counter.",
             faqFollowUp()
           ),
       },
@@ -378,7 +378,7 @@ export default function AIAssistant() {
         onSelect: () =>
           say(
             "Do you offer a free consultation?",
-            "Yes — your first consultation with our team is completely free, in person or over WhatsApp.",
+            "Yes, your first consultation with our team is completely free, in person or over WhatsApp.",
             faqFollowUp()
           ),
       },
@@ -387,7 +387,7 @@ export default function AIAssistant() {
         onSelect: () =>
           say(
             "What fabrics do you offer?",
-            "Curtains, sofa upholstery, outdoor fabric, blackout fabric, and general fabrics — velvet, leather, linen, jacquard and more — all organized into catalogs you can browse online.",
+            "Curtains, sofa upholstery, outdoor fabric, blackout fabric, and general fabrics, velvet, leather, linen, jacquard and more, all organized into catalogs you can browse online.",
             faqFollowUp()
           ),
       },
@@ -510,7 +510,7 @@ export default function AIAssistant() {
               </div>
               <div>
                 <strong>Damask AI Sales Assistant</strong>
-                <span>Online • Your Textile Showroom Guide</span>
+                <span>Online • Your Textile Buying Guide</span>
               </div>
             </div>
             <div className="ai-assistant-header-actions">

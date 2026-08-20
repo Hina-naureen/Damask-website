@@ -61,7 +61,7 @@ export default function Contact() {
                   <a href={`tel:${site.phonePrimaryTel}`}>{site.phonePrimary}</a> &nbsp;|&nbsp;{" "}
                   <a href={`tel:${site.phoneSecondaryTel}`}>{site.phoneSecondary}</a>
                   <br />
-                  {site.ownerName} — {site.ownerTitle}
+                  {site.ownerName}, {site.ownerTitle}
                 </span>
               </div>
             </li>
@@ -103,7 +103,7 @@ export default function Contact() {
             method="POST"
             onSubmit={handleSubmit}
           >
-            <input type="hidden" name="_subject" value="New Consultation Request – Damask Textile Pakistan" />
+            <input type="hidden" name="_subject" value="New Consultation Request: Damask Textile Pakistan" />
             <input type="hidden" name="_template" value="table" />
             <input type="hidden" name="_captcha" value="false" />
             <h3>Book A Free Consultation</h3>

@@ -143,7 +143,7 @@ export default function CatalogBookViewer({ pages, name }: { pages: BookPage[]; 
         </button>
       </div>
       <p className="catalog-book-count">
-        {name} — Page {pageIndex + 1} of {pages.length}
+        {name}: Page {pageIndex + 1} of {pages.length}
       </p>
     </div>
   );

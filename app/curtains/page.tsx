@@ -10,14 +10,14 @@ import { curtains, curtainCategories } from "@/lib/data/curtains";
 export const metadata: Metadata = {
   title: "Luxury Curtains Collection | Damask Textile Pakistan",
   description:
-    "Explore our luxury curtain showroom — window curtains, door curtains and special styles including velvet, silk, blackout, sheer, eyelet, pleated and motorized curtains for premium interiors in Karachi.",
+    "Explore our luxury curtain collection, featuring window curtains, door curtains and special styles including velvet, silk, blackout, sheer, eyelet, pleated and motorized curtains for premium interiors in Karachi.",
 };
 
 export default function CurtainsPage() {
   return (
     <main>
       <PageHero
-        imageId="1554295405-abb8fd54f153"
+        image="/curtain-collection/photo-7.jpg"
         eyebrow="Curtain & Textile Collection"
         title="Luxury Curtains Collection"
         description="From heavyweight velvet to motorized smart curtains, discover 23 premium styles crafted to elevate every window and door in your home."
@@ -29,10 +29,10 @@ export default function CurtainsPage() {
       <section className="portfolio">
         <div className="container">
           <Reveal className="section-head">
-            <p className="eyebrow">Showroom</p>
+            <p className="eyebrow">Collection</p>
             <h2>Curtain Styles &amp; Fabrics</h2>
             <p className="section-desc">
-              Window curtains, door curtains and special styles — each tailored in premium fabric
+              Window curtains, door curtains and special styles, each tailored in premium fabric
               and finished to a five-star standard.
             </p>
           </Reveal>

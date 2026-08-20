@@ -7,7 +7,7 @@ import LuxurySofaShowcase from "@/components/LuxurySofaShowcase";
 export const metadata: Metadata = {
   title: "Premium Sofa Collection | Damask Textile Pakistan",
   description:
-    "Browse our premium sofa gallery — L-shape, Chesterfield, leather, fabric, recliner, sectional and custom designer sofas crafted for luxury Karachi homes.",
+    "Browse our premium sofa gallery, featuring L-shape, Chesterfield, leather, fabric, recliner, sectional and custom designer sofas crafted for luxury Karachi homes.",
 };
 
 export default function SofasPage() {
@@ -17,7 +17,7 @@ export default function SofasPage() {
         imageId="1617806118233-18e1de247200"
         eyebrow="Furniture & Sofa Collection"
         title="Premium Sofa Collection"
-        description="Eleven signature sofa styles — from tailored Chesterfields to minimalist lounge seating — built to anchor every living room."
+        description="Eleven signature sofa styles, from tailored Chesterfields to minimalist lounge seating, built to anchor every living room."
         crumb="Sofas"
       />
 

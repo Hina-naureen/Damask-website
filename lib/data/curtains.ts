@@ -14,64 +14,6 @@ export const curtainCategories = [
 ] as const;
 
 export const curtains: Product[] = [
-  // ---------------- Special Curtain Styles ----------------
-  {
-    slug: "eyelet-curtain",
-    name: "Eyelet Curtain",
-    description: "Modern grommet header that glides smoothly for a clean, contemporary fold.",
-    imageId: "1498848672066-37f29478af93",
-    category: "special",
-  },
-  {
-    slug: "pleated-curtain",
-    name: "Pleated Curtain",
-    description: "Structured, uniform pleats that hold their shape for a tailored, formal finish.",
-    imageId: "1578337834535-357ad7dccdfd",
-    category: "special",
-  },
-  {
-    slug: "rod-pocket-curtain",
-    name: "Rod Pocket Curtain",
-    description: "A classic gathered header that slides directly onto the rod for soft, relaxed folds.",
-    imageId: "1519035350952-38d18a3848cf",
-    category: "special",
-  },
-  {
-    slug: "pinch-pleat-curtain",
-    name: "Pinch Pleat Curtain",
-    description: "Hand-pinched triple pleats for a refined, couture-level drapery header.",
-    imageId: "1567538096630-e0c55bd6374c",
-    category: "special",
-  },
-  {
-    slug: "roman-blinds",
-    name: "Roman Blinds",
-    description: "Fabric shades that fold into crisp horizontal pleats for a tailored, soft-structured look.",
-    imageId: "1522444195799-478538b28823",
-    category: "special",
-  },
-  {
-    slug: "roller-blinds",
-    name: "Roller Blinds",
-    description: "Sleek, low-profile shades that roll away completely for an unobstructed view.",
-    imageId: "1603299938527-d035bc6fc2c8",
-    category: "special",
-  },
-  {
-    slug: "motorized-curtains",
-    name: "Motorized Curtains",
-    description: "Remote and app-controlled operation for effortless, smart-home curtain automation.",
-    imageId: "1583847268964-b28dc8f51f92",
-    category: "special",
-  },
-  {
-    slug: "luxury-drapes",
-    name: "Luxury Drapes",
-    description: "Dramatic, floor-sweeping drapery that makes a grand statement in any luxury room.",
-    imageId: "1659282386282-d7145e593bad",
-    category: "special",
-  },
-
   // ---------------- Window Curtains (Room & Style Variants) ----------------
   {
     slug: "modern-living-room-curtain",
@@ -95,13 +37,6 @@ export const curtains: Product[] = [
     category: "window",
   },
   {
-    slug: "grey-window-curtain",
-    name: "Grey Window Curtain",
-    description: "Cool grey tones offering a versatile, modern backdrop for any room palette.",
-    imageId: "1771039622303-71545f266c1b",
-    category: "window",
-  },
-  {
     slug: "beige-designer-curtain",
     name: "Beige Designer Curtain",
     description: "Warm beige drapery styled beneath statement pendant lighting for a designer finish.",
@@ -120,13 +55,6 @@ export const curtains: Product[] = [
     name: "Sheer Curtain in Morning Light",
     description: "Gauzy sheer fabric that glows beautifully as morning sunlight filters through.",
     imageId: "1598414381594-18d86505f5d5",
-    category: "window",
-  },
-  {
-    slug: "luxury-red-velvet-curtain",
-    name: "Luxury Red Velvet Curtain",
-    description: "Deep red velvet in dramatic, sculptural folds for a bold luxury statement.",
-    imageId: "1633523225779-3638cd0c2009",
     category: "window",
   },
   {
@@ -186,13 +114,6 @@ export const curtains: Product[] = [
     category: "window",
   },
   {
-    slug: "white-curtain-detail",
-    name: "White Curtain Detail",
-    description: "A close, textural look at soft white drapery pooling onto a wooden floor.",
-    imageId: "1467635624863-33cf388d9a2e",
-    category: "window",
-  },
-  {
     slug: "small-window-curtain",
     name: "Small Window Curtain",
     description: "Tailored for compact windows, keeping a minimalist apartment feeling bright and open.",
@@ -217,7 +138,7 @@ export const curtains: Product[] = [
   },
   {
     slug: "balcony-door-curtain-garden-view",
-    name: "Balcony Door Curtain – Garden View",
+    name: "Balcony Door Curtain: Garden View",
     description: "Light-filtering panels framing french balcony doors that open onto a garden view.",
     imageId: "1744039932780-1819b9ddeb84",
     category: "door",
@@ -230,35 +151,7 @@ export const curtains: Product[] = [
     category: "door",
   },
 
-  // ---------------- Blinds & Special Styles (More Options) ----------------
-  {
-    slug: "wooden-blinds",
-    name: "Wooden Blinds",
-    description: "Natural wood slat blinds that cast warm, layered light across the room.",
-    imageId: "1582265214834-c02ec775947b",
-    category: "special",
-  },
-  {
-    slug: "warm-wooden-blinds",
-    name: "Warm Wooden Blinds",
-    description: "Rich wood-tone blinds offering an organic, textured alternative to fabric curtains.",
-    imageId: "1622605058034-5cbf25d135de",
-    category: "special",
-  },
-  {
-    slug: "office-window-blinds",
-    name: "Office Window Blinds",
-    description: "Crisp white blinds suited to bright, professional office and study spaces.",
-    imageId: "1609423433459-a65b330ef5da",
-    category: "special",
-  },
-  {
-    slug: "office-vertical-blinds",
-    name: "Office Vertical Blinds",
-    description: "Vertical fabric blinds offering adjustable privacy for commercial interiors.",
-    imageId: "1778086572533-3949651f7ac9",
-    category: "special",
-  },
+  // ---------------- Special Styles (More Options) ----------------
   {
     slug: "dramatic-layered-drape",
     name: "Dramatic Layered Drape",

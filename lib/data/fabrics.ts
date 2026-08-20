@@ -4,7 +4,7 @@ export const fabrics: Product[] = [
   {
     slug: "velvet-fabric",
     name: "Velvet Fabric",
-    description: "Deep, lustrous velvet with a soft hand-feel — ideal for statement sofas and drapery.",
+    description: "Deep, lustrous velvet with a soft hand-feel, ideal for statement sofas and drapery.",
     imageId: "1628973434123-3e956f203dd6",
   },
   {
@@ -40,7 +40,7 @@ export const fabrics: Product[] = [
   {
     slug: "designer-fabric-rolls",
     name: "Designer Fabric Rolls",
-    description: "A curated showroom shelf of designer textile rolls, ready for custom tailoring.",
+    description: "A curated shelf of designer textile rolls, ready for custom tailoring.",
     imageId: "1640767760729-7bfb6ce43ad4",
   },
   {
@@ -51,8 +51,8 @@ export const fabrics: Product[] = [
   },
   {
     slug: "textile-showroom-display",
-    name: "Textile Showroom Display",
-    description: "Our full fabric showroom — hundreds of textures and tones available to sample in person.",
+    name: "Textile Collection Display",
+    description: "Our full fabric library, hundreds of textures and tones available to sample in person.",
     imageId: "1775662039200-8e9e4a635367",
   },
 ];

@@ -9,7 +9,7 @@ const collections = [
     number: "01",
     tag: "Drapery",
     title: "Curtain Collection",
-    desc: "Velvet, silk, sheer & designer drapery styled to showroom standard.",
+    desc: "Velvet, silk, sheer & designer drapery styled to a five-star standard.",
     image: "/curtain-collection/photo-1.jpg",
     overlayLight: false,
     featured: true,
@@ -29,7 +29,7 @@ const collections = [
     tag: "Outdoor",
     title: "Outdoor Fabric Collection",
     desc: "Weather-resistant, fade-proof fabric for al fresco living.",
-    image: "/outdoor-fabric/photo-13.jpg",
+    image: "/outdoor-fabric/photo-10.jpg",
     overlayLight: false,
   },
   {
@@ -57,11 +57,15 @@ export default function CollectionsShowcase() {
     <section className="collections-showcase" id="collections">
       <div className="container">
         <Reveal className="section-head collections-head">
-          <p className="eyebrow">The Showroom</p>
+          <p className="eyebrow">The Collection</p>
           <h2>Explore Our Collections</h2>
           <p className="section-desc">
-            Five wholesale-ready fabric collections, each styled and photographed to showroom
-            standard — curated for showrooms, interior shops and design professionals.
+            Damask is a leading distributor of home and commercial fabrics in Pakistan. Our current
+            fabric collections of over 100 drapery &amp; upholstery designs can cater to any space,
+            be it commercial or residential. Our fabrics are weaved exclusively at world class
+            composite mills that maintain exceptional quality control. Whether its drapery in
+            regal patterns, or upholstery that emanates a quiet modernism, our furnishing fabrics
+            can complete your decor.
           </p>
         </Reveal>
 

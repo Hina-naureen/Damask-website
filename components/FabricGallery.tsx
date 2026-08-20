@@ -67,7 +67,7 @@ export default function FabricGallery({ fabrics, catalogName }: { fabrics: Fabri
               <div className="product-frame" />
               <Image
                 src={f.image}
-                alt={`${catalogName} — Fabric ${f.number}`}
+                alt={`${catalogName} Fabric ${f.number}`}
                 fill
                 sizes="(max-width: 700px) 50vw, (max-width: 1080px) 33vw, 25vw"
               />
@@ -104,7 +104,7 @@ export default function FabricGallery({ fabrics, catalogName }: { fabrics: Fabri
             <div className="fabric-modal-image">
               <Image
                 src={active.image}
-                alt={`${catalogName} — Fabric ${active.number}`}
+                alt={`${catalogName} Fabric ${active.number}`}
                 fill
                 sizes="(max-width: 900px) 100vw, 60vw"
               />
@@ -128,7 +128,7 @@ export default function FabricGallery({ fabrics, catalogName }: { fabrics: Fabri
                 </dl>
               ) : (
                 <p className="fabric-modal-label">
-                  <i className="fa-solid fa-circle-info" /> Fabric swatch — no written specification
+                  <i className="fa-solid fa-circle-info" /> Fabric swatch, no written specification
                   provided for this item
                 </p>
               )}

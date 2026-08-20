@@ -19,7 +19,7 @@ const GENERIC_FEATURES = [
 const CATEGORY_APPLICATIONS: Record<string, string[]> = {
   window: ["Windows", "Living rooms & bedrooms", "Residential & commercial interiors"],
   door: ["Main doors, sliding & French doors", "Entryways & balconies"],
-  special: ["Specialty window treatments", "Blinds, shades & motorized setups"],
+  special: ["Specialty window treatments", "Drapery, layering & motorized setups"],
 };
 const DEFAULT_APPLICATIONS = [
   "Living rooms & bedrooms",

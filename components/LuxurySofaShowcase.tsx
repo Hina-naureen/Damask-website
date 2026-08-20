@@ -25,9 +25,9 @@ export default function LuxurySofaShowcase() {
   return (
     <MediaShowcase
       id="luxury-sofa"
-      eyebrow="Signature Showroom"
+      eyebrow="Signature Collection"
       title="Luxury Sofa Collection"
-      description="An exclusive look at our Luxury Sofa line — premium upholstery, tailored comfort and showroom-grade craftsmanship, captured in photos and video."
+      description="An exclusive look at our Luxury Sofa line, premium upholstery, tailored comfort and boutique-grade craftsmanship, captured in photos and video."
       cardLabel="Luxury Sofa"
       photos={photos}
       videos={videos}
