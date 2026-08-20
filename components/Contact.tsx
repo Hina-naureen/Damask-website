@@ -54,18 +54,6 @@ export default function Contact() {
               </div>
             </li>
             <li>
-              <i className="fa-solid fa-phone" />
-              <div>
-                <strong>Phone</strong>
-                <span>
-                  <a href={`tel:${site.phonePrimaryTel}`}>{site.phonePrimary}</a> &nbsp;|&nbsp;{" "}
-                  <a href={`tel:${site.phoneSecondaryTel}`}>{site.phoneSecondary}</a>
-                  <br />
-                  {site.ownerName}, {site.ownerTitle}
-                </span>
-              </div>
-            </li>
-            <li>
               <i className="fa-solid fa-envelope" />
               <div>
                 <strong>Email</strong>

@@ -10,7 +10,7 @@ const collections = [
     tag: "Drapery",
     title: "Curtain Collection",
     desc: "Velvet, silk, sheer & designer drapery styled to a five-star standard.",
-    image: "/curtain-collection/photo-1.jpg",
+    image: "/curtain-collection/photo-12.jpg",
     overlayLight: false,
     featured: true,
   },

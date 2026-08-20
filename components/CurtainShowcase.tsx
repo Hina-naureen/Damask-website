@@ -1,17 +1,9 @@
 import MediaShowcase from "./MediaShowcase";
 
 const photos = [
-  "/curtain-collection/photo-1.jpg",
-  "/curtain-collection/photo-2.jpg",
-  "/curtain-collection/photo-3.jpg",
-  "/curtain-collection/photo-4.jpg",
-  "/curtain-collection/photo-5.jpg",
-  "/curtain-collection/photo-6.jpg",
-  "/curtain-collection/photo-7.jpg",
   "/curtain-collection/photo-8.jpg",
   "/curtain-collection/photo-9.jpg",
   "/curtain-collection/photo-10.jpg",
-  "/curtain-collection/photo-11.jpg",
   "/curtain-collection/photo-12.jpg",
   "/curtain-collection/photo-13.jpg",
   "/curtain-collection/photo-14.jpg",
